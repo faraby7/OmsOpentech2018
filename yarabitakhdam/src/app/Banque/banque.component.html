@@ -1,0 +1,233 @@
+<card [title]="'les comptes bancaire '" [classHeader]="true" [blockClass]="'table-border-style'">
+
+  <div _ngcontent-c6="" class="table-responsive">
+
+    <div class="card-block">
+
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered nowrap"  id="simpletable">
+          <thead>
+          <tr>
+            <th>RefCompte</th>
+            <th>Nom</th>
+            <th>Numero</th>
+            <th>Type</th>
+            <th>Proprietaire</th>
+            <th>Domiciliation</th>
+            <th>Montant TOTAL</th>
+            <th style="align:center;"><button _ngcontent-c6="" _ngcontent-c4="" class="btn  btn-outline-info" (click)="open(content)"><i _ngcontent-c6="" _ngcontent-c4="" class="icofont icofont-add"></i>Ajouter Compte</button></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr  *ngFor="let post of compteData">
+            <td (click)="open(contentBanque,post)"  ><u>{{ post.RefCompte }}</u></td>
+            <td (click)="open(contentBanque,post)"  >{{ post.Nom }}</td>
+            <td (click)="open(contentBanque,post)"  >{{ post.Numero }} </td>
+            <td (click)="open(contentBanque,post)"  >{{ post.Type }}</td>
+            <td (click)="open(contentBanque,post)"  >{{ post.Proprietaire }}</td>
+            <td (click)="open(contentBanque,post)"  >{{ post.Domiciliation }}</td>
+            <td (click)="open(contentBanque,post)"  >{{ post.Solde }}</td>
+            <td class="action-icon">
+              <a class="m-r-15 text-muted f-18"(click)="open(contentBanqueUpdate)" ><i class="icofont icofont-ui-edit"></i></a>
+              <a class="text-muted f-18" (click)="opensm(contentCompteDelete)" ><i class="icofont icofont-delete-alt"></i></a>
+            </td>
+
+
+            <ng-template #contentCompteDelete let-c="close" let-d="dismiss">
+              <div class="modal-header" style="background-color: #DD4B39">
+                <h4 class="modal-title" style="color: white">Supprimer Compte</h4>
+                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <dl class="row">
+                  <dt class="col-sm-3">Libellé</dt>
+                  <dd class="col-sm-3">{{ post.Nom }}</dd>
+                  <dt class="col-sm-3">Numero</dt>
+                  <dd class="col-sm-3">{{ post.Numero }}</dd>
+
+                  <br>
+                  <dt class="col-sm-3 text-truncate">Proprietaire</dt>
+                  <dd class="col-sm-9">{{ post.Proprietaire }}</dd>
+                </dl>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-square"   (click)="delete(post)" (click)="d('Cross click')"><i class="icofont icofont-warning-alt"></i> Supprimer</button>
+                <button type="button" class="btn btn-warning btn-square"  (click)="d('Cross click')">Annuler</button>
+              </div>
+            </ng-template>
+
+            <!-- /Update Produit -->
+            <ng-template #contentBanqueUpdate let-c="close" let-d="dismiss">
+              <div class="modal-header" style="background-color: #4cd787">
+                <h4 class="modal-title" id="modal-basic-titlee" style="color: white">Modifier Compte</h4>
+                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <form method="post" action="" [formGroup]="myformUpdate" (ngSubmit)="onUpdate(post.id,post.RefCompte,post.Type,post.Devis,post.Domiciliation,post.Nom,post.Numero,post.Proprietaire,post.Solde); d('Cross click');">
+                  <div class="form-group">
+                    <label class="col-form-label">Réf:</label><span _ngcontent-c4="" class="col-form-label" style="color: red">  *Example:12453 </span>
+                    <input type="text" class="form-control" formControlName="RefCompte"  value='{{ post.RefCompte }}' >
+
+                    <label class="col-form-label">Libellé :</label>
+                    <input type="text" class="form-control" formControlName="Nom"  value='{{ post.Nom }}' >
+
+
+
+                    <label class="col-form-label">Type :</label>
+                    <select _ngcontent-c10="" class="form-control" formControlName="Type" ngModel>
+                      <option _ngcontent-c10="" value="	Compte bancaire courant">Compte bancaire courant</option>
+                      <option _ngcontent-c10="" value="Compte caisse/liquide">Compte caisse/liquide</option>
+                    </select>
+
+                    <label class="col-form-label">Numéro :</label>
+                    <input type="text" class="form-control" formControlName="Numero" value='{{ post.Numero }}' >
+
+                    <label class="col-form-label">Domiciliation  :</label>
+                    <input type="text" class="form-control" formControlName="Domiciliation" value='{{ post.Domiciliation }}' >
+
+                    <label class="col-form-label">Devis :</label>
+                    <input type="text" class="form-control" formControlName="Devis"  value='{{ post.Devis }}' >
+
+                    <label class="col-form-label">Proprietaire :</label>
+                    <input type="text" class="form-control" formControlName="Proprietaire"  value='{{ post.Proprietaire }}' >
+
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-danger" (click)="c('Close click')">Annuler</button>
+                    <button type="submit" value="Submit" class="btn btn-success"><i class="icofont icofont-edit"></i>Modifier</button>
+
+                  </div>
+
+                </form>
+              </div>
+            </ng-template>
+
+
+
+
+            <!-- /Détail Produit -->
+            <ng-template #contentBanque let-c="close" let-d="dismiss">
+              <div class="modal-header" style="background-color: #00efeb">
+                <h4 class="modal-title" style="color: white">Détail Compte</h4>
+                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <dl class="row">
+                  <dt class="col-sm-3">Réf.</dt>
+                  <dd class="col-sm-3">{{ post.RefCompte }}</dd>
+                  <dt class="col-sm-3">Libellé</dt>
+                  <dd class="col-sm-3">{{ post.Nom }}</dd>
+                  <br>
+                  <br>
+                  <dt class="col-sm-3 text-truncate">Type Compte</dt>
+                  <dd class="col-sm-3">{{ post.Type }}</dd>
+                  <dt class="col-sm-3 text-truncate">Montant Total</dt>
+                  <dd class="col-sm-3">{{ post.Solde }}</dd>
+                  <br>
+                  <br>
+                  <dt class="col-sm-3">Proprietaire</dt>
+                  <dd class="col-sm-3">{{ post.Proprietaire }}</dd>
+                  <dt class="col-sm-3">Domiciliation</dt>
+                  <dd class="col-sm-3">{{ post.Domiciliation}}</dd>
+                  <br>
+                  <br>
+                  <dt class="col-sm-3">Devis</dt>
+                  <dd class="col-sm-3">
+                      <span class="label label-inverse-info">{{ post.Devis}}</span>
+                  </dd>
+
+                </dl>
+                <!-- /.panel-body -->
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
+              </div>
+            </ng-template>
+
+
+          </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</card>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header" style="background-color: #4cd787">
+    <h4 class="modal-title" id="modal-basic-title" style="color: white">Ajouter Compte</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <form method="post" action="" [formGroup]="myformCompte" (ngSubmit)="onSubmit(); d('Cross click');" >
+      <div class="form-group">
+        <label class="col-form-label">Réf:</label><span _ngcontent-c4="" class="col-form-label" style="color: red">  *Example:12453 </span>
+        <input type="text" class="form-control" formControlName="RefCompte" required >
+
+        <label class="col-form-label">Libellé :</label>
+        <input type="text" class="form-control" formControlName="Nom" ngModel required  >
+
+
+
+        <label class="col-form-label">Type :</label>
+        <select _ngcontent-c10="" class="form-control" formControlName="Type" ngModel>
+          <option _ngcontent-c10="" value="	Compte bancaire courant">Compte bancaire courant</option>
+          <option _ngcontent-c10="" value="Compte caisse/liquide">Compte caisse/liquide</option>
+        </select>
+
+        <label class="col-form-label">Numéro :</label>
+        <input type="text" class="form-control" formControlName="Numero" ngModel required  >
+
+        <label class="col-form-label">Domiciliation  :</label>
+        <input type="text" class="form-control" formControlName="Domiciliation" ngModel required  >
+
+        <label class="col-form-label">Devis :</label>
+        <input type="text" class="form-control" formControlName="Devis" ngModel required   >
+
+        <label class="col-form-label">Proprietaire :</label>
+        <input type="text" class="form-control" formControlName="Proprietaire" ngModel required   >
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" (click)="d('Close click')">Annuler</button>
+        <button type="submit" value="Submit" class="btn btn-success" [disabled]="myformCompte.invalid"><i class="icofont icofont-ui-add"></i>Ajouter</button>
+      </div>
+
+    </form>
+
+  </div>
+</ng-template>
+
+
+<ng2-toasty [position]="position"></ng2-toasty>

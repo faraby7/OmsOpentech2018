@@ -1,0 +1,420 @@
+<script src="https://use.fontawesome.com/67749231ea.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<style>
+  .add_column{
+      padding: 6px 0 6px 0;
+      color: gray;
+      width: 34px;
+      border-radius: 2px;
+      background: none;
+      border :1px solid gray;
+      outline: none;
+  }
+  .if_rotour{
+      border-radius: 2px;
+      background: none;
+      border :1px solid gray;
+      outline: none;
+      padding: 8px 0 8px 0;
+      color: #222222;
+      width: 34px;
+  }
+  .form-group{
+    margin-bottom: 5px;
+  }
+  .add_column:hover{
+      transition: .4s;
+      background: gray;
+      color: white;
+  }
+  #type:hover{
+      cursor: pointer;
+  }
+  .form-group input,.form-group button,.form-group select{
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  #boitiers_client,#sim_client{
+    width:95%;border-color: gray;display: none
+  }
+  .col-sm-3{
+    font-size: 13px;
+  }
+</style>
+
+<card [title]="'Liste Details Intervention'" [classHeader]="true" [blockClass]="'table-border-style'">
+  <div _ngcontent-c6="" class="table-responsive">
+    <card cardTitle="Data Table">
+
+      <table _ngcontent-c6=""  class="table table-hover" >
+        <thead _ngcontent-c6="">
+
+
+        <tr class='table-filters'>
+          <th class="text-center priority-1" style=" width: 3%;"> <input _ngcontent-c6="" class="form-control form-control-success" (click)="resizepage()"  placeholder="Type" type="text"> </th>
+          <th class="text-center priority-7" style="width: 8%;">  <input _ngcontent-c6="" class="form-control form-control-success" (click)="resizepage()"  placeholder="Vehicule" type="text"></th>
+          <th class="text-center priority-9" style="width: 5%;">  <input _ngcontent-c6="" class="form-control form-control-success"(click)="resizepage()" placeholder="Boitiére " type="text"></th>
+          <th class="text-center priority-2" style="width: 5%;"> <input _ngcontent-c6="" class="form-control form-control-success" (click)="resizepage()"  placeholder="Carte Sim" type="text"> </th>
+          <th class="text-center priority-3" style="width: 5%;">  <input _ngcontent-c6="" class="form-control form-control-success" (click)="resizepage()"  placeholder="Kilométrage" type="text"></th>
+          <th class="text-center priority-3" style="width: 5%;">  <input _ngcontent-c6="" class="form-control form-control-success" (click)="resizepage()"  placeholder="Remarque" type="text"></th>
+          <th class="text-center priority-3" style="width: 5%;">  <input _ngcontent-c6="" class="form-control form-control-success" (click)="resizepage()"  placeholder="Durée" type="text"></th>
+          <th class="text-center priority-3" style="width: 5%;">
+               <button class="btn  btn-outline-primary" (click)="open(contentligneInterventionAdd);vider_details();"><i class="icofont icofont-ui-add"></i>Nouvelle Ligne</button>
+          </th>
+
+
+
+        <tr>
+          <th class="text-center priority-1" style=" width: 1%;"> Type.</th>
+          <th class="text-center priority-7" style="width: 8%;"> Vehicule </th>
+          <th class="text-center priority-9" style="width: 5%;"> Boitiére </th>
+          <th class="text-center priority-2" style="width: 5%;"> Carte Sim </th>
+          <th class="text-center priority-3" style="width: 5%;"> Kilométrage </th>
+          <th class="text-center priority-3" style="width: 5%;"> Remarque </th>
+          <th class="text-center priority-3" style="width: 5%;"> Durée </th>
+          <th class="text-center priority-3" style="width: 5%;"> Action </th>
+        </tr>
+        </thead>
+
+
+
+        <tbody _ngcontent-c6="">
+        <tr *ngFor="let post of detail | paginate: { id: 'pager', itemsPerPage: pageSize, currentPage: pageNumber};let index = index" class='table-data'>
+
+            <td (click)="open(contentligneIntervention,post)" style="text-align:center">{{post.type}}</td>
+          <td (click)="open(contentligneIntervention,post)" style="text-align:center">{{post.imei}}</td>
+
+          <div *ngIf="post.imei_boitier == 0 || post.imei_boitier == null;then clientBoitiere else openBoitiere"></div>
+          <ng-template #openBoitiere><td (click)="open(contentligneIntervention,post)"  style="text-align:center">{{post.imei_product_boitier}}</td></ng-template>
+          <ng-template #clientBoitiere><td (click)="open(contentligneIntervention,post)" style="text-align:center"><span class="badge badge-pill badge-danger">{{post.box_costumer}}</span></td></ng-template>
+
+          <div *ngIf="post.imei_carte == 0 || post.imei_carte == null;then clientSim else openSim"></div>
+          <ng-template #openSim><td (click)="open(contentligneIntervention,post)" style="text-align:center">{{post.imei_product_carte}}</td></ng-template>
+          <ng-template #clientSim><td (click)="open(contentligneIntervention,post)"  style="text-align:center;"><span class="badge badge-pill badge-danger">{{post.sim_costumer}}</span></td></ng-template>
+
+          <td (click)="open(contentligneIntervention,post)" style="text-align:center">{{post.kilometrage}}</td>
+          <td (click)="open(contentligneIntervention,post)" style="text-align:center">{{post.remarque_detail}}</td>
+          <td (click)="open(contentligneIntervention,post)" style="text-align:center">{{post.duration}}</td>
+
+          <td style="text-align:center">
+            <button type="button" class="btn btn-outline-success" (click)="open(contentligneInterventionUpdate);getBoitiers(post.type,'update',post.imei_boitier);getCartesSim(post.type,'update',post.imei_carte,post.imei_carte);displayBoitierOnLoad(post.imei_boitier);displaySimOnLoad(post.imei_carte)"><i class="icofont icofont-edit"></i>Edit</button>
+            <button type="button" class="btn btn-outline-danger" (click)="opensm(contentligneInterventionDelete)"><i class="icofont icofont-ui-delete"></i>Delete</button>
+          </td>
+
+
+
+
+
+          <ng-template #contentligneInterventionDelete let-c="close" let-d="dismiss">
+                <div class="modal-header" style="background-color: #DD4B39">
+                  <h4 class="modal-title" style="color: white">Delete Ligne d'intervention</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <dl class="row">
+
+                    <dt class="col-sm-3">Type</dt>
+                    <dd class="col-sm-3">{{post.type}}</dd>
+
+                    <dt class="col-sm-3">Véhicule</dt>
+                    <dd class="col-sm-3">{{post.imei}}</dd>
+
+                    <dt class="col-sm-3">Boitiére</dt>
+                    <div *ngIf="post.imei_boitier == null || post.imei_boitier == 0;then delete_clientBoitiere else delete_openBoitiere"></div>
+                        <ng-template #delete_openBoitiere><dd class="col-sm-3">{{post.imei_product_boitier}}</dd></ng-template>
+                        <ng-template #delete_clientBoitiere><dd class="col-sm-3">{{post.box_costumer}}</dd></ng-template>
+
+
+                    <dt class="col-sm-3">Carte Sim</dt>
+                    <div *ngIf="post.imei_carte == null || post.imei_carte == 0;then delete_clientSim else delete_openSim"></div>
+                        <ng-template #delete_openSim><dd class="col-sm-3">{{post.imei_product_carte}}</dd></ng-template>
+                        <ng-template #delete_clientSim><dd class="col-sm-3">{{post.sim_costumer}}</dd></ng-template>
+
+
+
+                    <dt class="col-sm-3">Kilométrage</dt>
+                    <dd class="col-sm-3">{{post.kilometrage}}</dd>
+
+                    <dt class="col-sm-3">Remarque</dt>
+                    <dd class="col-sm-3">{{post.remarque_detail}}</dd>
+
+                    <dt class="col-sm-3">Duration</dt>
+                    <dd class="col-sm-3">{{post.duration}}</dd>
+
+                  </dl>
+
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-warning btn-square"  (click)="d('Cross click')">Cancel</button>
+                  <button type="button" class="btn btn-danger btn-square" (click)="delete(post);d('Cross click')"><i class="icofont icofont-warning-alt"></i> Delete</button>
+                </div>
+          </ng-template>
+
+
+          <ng-template #contentligneInterventionUpdate let-c="close" let-d="dismiss">
+                <div class="modal-header" style="background-color: #4cd787">
+                  <h4 class="modal-title" id="modal-basic-title" style="color: white">Update Ligne d'intervention</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+
+
+            <form method="post" action="" [formGroup]="myformUpdate"  (ngSubmit)="updateLine(post.detail_id,post.type,post.kilometrage,post.remarque_detail,post.duration);d('Cross click');">
+              <div class="form-group">
+                <label  class="col-form-label">Type :</label>
+                <input type="text" id="type" class="form-control" value='{{post.type}}' disabled>
+              </div>
+              <div class="form-group">
+                <label class="col-form-label">Véhicule :</label><br>
+                <select id="select_car" style="width:95%" class="form-control" value='{{post.id_vehicule}}' formControlName="car_update" ngModel>
+                    <option value=""></option>
+                    <option *ngFor="let single_vehicule of vehicule" value="{{single_vehicule.id}}">{{single_vehicule.imei}}</option>
+                    <option value="{{post.id_vehicule}}">{{post.imei}}</option>
+                </select>
+                <input id="imei_1" style="width:40%;display: none;border-color: gray" type="text" placeholder="Matricule" class="form-control" formControlName="imei1_update" ngModel>
+                <select id="imei_2" style="width:27%;display: none;border-color: gray" class="form-control" formControlName="imei2_update" ngModel>
+                      <option value=""></option>
+                      <option value="WWW">WWW</option>
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                </select>
+                <select id="imei_3" style="width:27%;display: none;border-color: gray" class="form-control" formControlName="imei3_update" ngModel>
+                      <option value=""></option>
+                      <option value="WWW">WWW</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                </select>
+                <button type="button" class="add_column" (click)="display_Car()"><i id="add_car" class="fas fa-plus"></i></button>
+                <input id="marque" style="width:95%;display: none;border-color: gray" type="text" placeholder="Marque" class="form-control" formControlName="marque_update" ngModel>
+                <input id="model" style="width:95%;display: none;border-color: gray" type="text" placeholder="Model" class="form-control" formControlName="model_update" ngModel>
+              </div>
+
+
+
+              <div class="form-group">
+                <label  class="col-form-label">Boitiers :</label>
+                <select id="boitiers_opentech" style="width:95%" _ngcontent-c10="" class="form-control" formControlName="imei_boitier" ngModel>
+                      <option value=""></option>
+                      <option ngcontent-c10="" value="{{post.imei_boitier}}">{{post.imei_product_boitier}}</option>
+                      <option *ngFor="let box of Boitiers" value="{{box.product_id}}">{{box.imei_product}}</option>
+                </select>
+                <input id="boitiers_client" type="text" class="form-control" value="{{post.box_costumer}}" formControlName="box_costumer" ngModel>
+                <button type="button" class="add_column" (click)="display_boitiers()"><i id="boitiers_add" class="fas fa-plus"></i></button>
+              </div>
+
+              <div class="form-group">
+                <label class="col-form-label">Carte Sim :</label>
+                <select id="sim_opentech" style="width:95%" _ngcontent-c10="" class="form-control" formControlName="imei_carte" ngModel>
+                      <option value=""></option>
+                      <option ngcontent-c10="" value="{{post.imei_carte}}">{{post.imei_product_carte}}</option>
+                      <option *ngFor="let carte of cartesSim " value="{{carte.product_id}}">{{carte.imei_product}}</option>
+                </select>
+                <input id="sim_client" type="text" class="form-control" value="{{post.sim_costumer}}" formControlName="sim_costumer" ngModel>
+                <button type="button" class="add_column" (click)="display_Sim()"><i id="sim_add" class="fas fa-plus"></i></button>
+              </div>
+
+              <div class="form-group">
+                <label  class="col-form-label">Kilométrage :</label>
+                <input type="text" class="form-control"  value='{{post.kilometrage}}' formControlName="kilometrage" ngModel>
+              </div>
+
+              <div class="form-group">
+                <label  class="col-form-label">Remarque :</label>
+                <input type="text" class="form-control"  value='{{post.remarque_detail}}' formControlName="remarque" ngModel>
+              </div>
+
+              <div class="form-group">
+                <label  class="col-form-label">Durée :</label>
+                <input type="time" class="form-control"  value='{{post.duration}}' formControlName="duration" ngModel>
+              </div>
+
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="c('Close click')">Cancel</button>
+                <button type="submit" value="Submit" class="btn btn-success"><i class="icofont icofont-edit"></i>Update</button>
+
+              </div>
+
+            </form>
+          </div>
+
+          </ng-template>
+
+
+
+
+          <ng-template #contentligneIntervention let-c="close" let-d="dismiss">
+            <div class="modal-header" style="background-color: #00AEEF">
+              <h4 class="modal-title" style="color: white">Detail Provider</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <dl class="row">
+
+                <dt class="col-sm-3">Type</dt>
+                <dd class="col-sm-3">{{post.type}}</dd>
+
+                <dt class="col-sm-3">Véhicule</dt>
+                <dd class="col-sm-3">{{post.imei}}</dd>
+
+                <dt class="col-sm-3">Boitiére</dt>
+                <div *ngIf="post.imei_boitier == null || post.imei_boitier == 0;then content_clientBoitiere else content_openBoitiere"></div>
+                <ng-template #content_openBoitiere><dd class="col-sm-3">{{post.imei_product_boitier}}</dd></ng-template>
+                <ng-template #content_clientBoitiere><dd class="col-sm-3">{{post.box_costumer}}</dd></ng-template>
+
+
+                <dt class="col-sm-3">Carte Sim</dt>
+                <div *ngIf="post.imei_carte == null || post.imei_carte == 0;then content_clientSim else content_openSim"></div>
+                <ng-template #content_openSim><dd class="col-sm-3">{{post.imei_product_carte}}</dd></ng-template>
+                <ng-template #content_clientSim><dd class="col-sm-3">{{post.sim_costumer}}</dd></ng-template>
+
+
+
+                <dt class="col-sm-3">Kilométrage</dt>
+                <dd class="col-sm-3">{{post.kilometrage}}</dd>
+
+                <dt class="col-sm-3">Remarque</dt>
+                <dd class="col-sm-3">{{post.remarque_detail}}</dd>
+
+                <dt class="col-sm-3">Duration</dt>
+                <dd class="col-sm-3">{{post.duration}}</dd>
+
+              </dl>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
+            </div>
+          </ng-template>
+
+
+
+        </tr>
+
+      </table>
+
+
+
+
+
+      <ng-template #contentligneInterventionAdd let-c="close" let-d="dismiss">
+        <div class="modal-header" style="background-color: #239DFF" >
+          <h4 class="modal-title" style="color: white">Add Ligne d'intervention</h4>
+          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+
+          <form method="post" action="" [formGroup]="myform" (submit)="add_detail_intervention();c('Close click')">
+            <div class="form-group">
+              <label  class="col-form-label">Type :</label>
+              <select id="type_add" _ngcontent-c10="" class="form-control" (change)="getBoitiers('type_add','add','');getCartesSim('type_add','add','')" formControlName="type_add" required ngModel>
+                <option value=""></option>
+                <option value="r">r</option>
+                <option value="v">v</option>
+                <option value="d">d</option>
+                <option value="i">i</option>
+              </select>
+              <!--<select id="if_rotour" _ngcontent-c10="" class="if_rotour" value="r" style="display: none" formControlName="ifRotour_add" ngModel>-->
+                <!--<option value="r">r</option>-->
+                <!--<option value="n">n</option>-->
+              <!--</select>-->
+            </div>
+            <div class="form-group">
+              <label class="col-form-label">Véhicule :</label><br>
+              <select id="imei_car" style="width:95%" _ngcontent-c10="" class="form-control" formControlName="vehicule_add" ngModel>
+                <option _ngcontent-c10="" value=""></option>
+                <option *ngFor="let single_vehicule of vehicule" _ngcontent-c10="" value="{{single_vehicule.id}}">{{single_vehicule.imei}}</option>
+              </select>
+              <input id="imei_1_new" style="width:40%;display: none;border-color: gray" type="text" class="form-control" placeholder="Matricule" formControlName="imei1_add" ngModel>
+              <select id="imei_2_new" style="width:27%;display: none;border-color: gray" class="form-control" formControlName="imei2_add" ngModel>
+                  <option value=""></option>
+                  <option value="WWW">WWW</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+              </select>
+              <select id="imei_3_new" style="width:27%;display: none;border-color: gray" class="form-control" formControlName="imei3_add" ngModel>
+                  <option value=""></option>
+                  <option value="WWW">WWW</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+              </select>
+              <button type="button" class="add_column" (click)="display_Car_add()"><i id="add_new_car" class="fas fa-plus"></i></button>
+              <input id="marque_new" style="width:95%;display: none;border-color: gray" type="text" class="form-control" placeholder="Marque" formControlName="marque_add" ngModel>
+              <input id="model_new" style="width:95%;display: none;border-color: gray" type="text" class="form-control" placeholder="Model" formControlName="model_add" ngModel>
+            </div>
+
+            <div class="form-group">
+              <label  class="col-form-label">Boitiers :</label>
+              <select id="boitier_open_new" style="width:95%" _ngcontent-c10="" class="form-control" formControlName="boitier_opentech_add" ngModel>
+                  <option value=""></option>
+                  <option *ngFor="let box of Boitiers" value="{{box.product_id}}">{{box.imei_product}}</option>
+              </select>
+              <input id="boitier_client_new" style="width:95%;border-color: gray;display: none" type="text" class="form-control" formControlName="boitier_client_add" ngModel>
+              <button type="button" class="add_column" (click)="display_box_add()"><i id="add_boitier_new" class="fas fa-plus"></i></button>
+            </div>
+
+            <div class="form-group">S
+              <label class="col-form-label">Carte Sim :</label>
+              <select id="sim_open_new" style="width:95%" _ngcontent-c10="" class="form-control" formControlName="carte_opentech_add" ngModel>
+                <option value=""></option>
+                  <option *ngFor="let carte of cartesSim " value="{{carte.product_id}}">{{carte.imei_product}}</option>
+              </select>
+              <input id="sim_client_new" style="width:95%;border-color: gray;display: none" type="text" class="form-control" formControlName="carte_client_add" ngModel>
+              <button type="button" class="add_column" (click)="display_Sim_add()"><i id="add_sim_new" class="fas fa-plus"></i></button>
+            </div>
+
+            <div class="form-group">
+              <label  class="col-form-label">Kilométrage :</label>
+              <input type="text" class="form-control" formControlName="kilometrage_add" ngModel>
+            </div>
+
+            <div class="form-group">
+              <label  class="col-form-label">Remarque :</label>
+              <input type="text" class="form-control" formControlName="remarque_add" ngModel>
+            </div>
+
+            <div class="form-group">
+              <label  class="col-form-label">Durée :</label>
+              <input type="time" class="form-control" formControlName="duration_add" ngModel >
+            </div>
+
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" (click)="c('Close click')">Cancel</button>
+              <button type="submit" style="background: #239DFF;border-color: #239DFF" value="Submit" class="btn btn-success"><i class="icofont icofont-edit"></i>Add</button>
+
+            </div>
+
+          </form>
+        </div>
+
+      </ng-template>
+
+
+    </card>
+  </div>
+
+</card>
+
+
+
+
+<ng2-toasty [position]="position"></ng2-toasty>
+
+
+

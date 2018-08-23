@@ -1,0 +1,168 @@
+
+    <card class="ng-tns-c10-62 ng-tns-c4-63"><div class="card ng-trigger ng-trigger-cardClose" style="opacity: 1;" *ngFor="let post of devisData ">
+      <!----><div class="card-header ng-tns-c4-63">
+      <h5 class="ng-tns-c4-63">Detaill Devis</h5>
+      <!----><span class="ng-tns-c4-63">Réf.{{ post.id }}</span>
+      <!---->
+      <div class="card-header-right">
+        <i class="icofont icofont-rounded-down" cardtoggleevent=""></i>
+        <i class="icofont icofont-refresh" cardrefresh=""></i>
+        <i class="icofont icofont-close-circled"></i>
+
+      </div>
+    </div>
+      <ngb-tabset #t="ngbTabset">
+
+        <ngb-tab id="tab-selectbyid1" title="Fiche Devis">
+
+          <ng-template ngbTabContent>
+
+            <div class="card-body table-border-style">
+            <div _ngcontent-c11="" class="table-responsive">
+
+              <table _ngcontent-c11="" class="table table-hover">
+                <tbody _ngcontent-c11="">
+                <tr _ngcontent-c11="">
+                  <td _ngcontent-c11="">Réf.</td>
+                  <td _ngcontent-c11="">Rf.{{ post.id }}</td>
+
+                </tr>
+                <tr _ngcontent-c11="">
+                  <td _ngcontent-c11="">Client</td>
+                  <td _ngcontent-c11="">{{ post.name }}</td>
+                </tr>
+                <tr _ngcontent-c11="">
+                  <td _ngcontent-c11="">Téléphone</td>
+                  <td _ngcontent-c11="">{{ post.phone_number }} </td>
+                </tr>
+
+                <tr _ngcontent-c11="">
+                  <td _ngcontent-c11="">Date Devis</td>
+                  <td _ngcontent-c11="">{{ post.DateFacture.slice(0,10) }}</td>
+                </tr>
+
+                <tr _ngcontent-c11="">
+                  <td _ngcontent-c11="">État</td>
+                  <td _ngcontent-c11="">
+                      <div *ngIf="post.EtatFacture == 0">
+                          <span class="label label-inverse-danger">Non Facturé </span>
+                      </div>
+                      <div *ngIf="post.EtatFacture == 1">
+                          <span class="label label-inverse-success">Facturé </span>
+                      </div>
+                  </td>
+                </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+            <!----><div class="card-header ng-tns-c4-63">
+            <h5 class="ng-tns-c4-63">Description Devis</h5>
+            <!----><span class="ng-tns-c4-63">Réf.{{ post.id }}</span>
+            <!---->
+            <div class="card-header-right">
+              <i class="icofont icofont-rounded-down" cardtoggleevent=""></i>
+              <i class="icofont icofont-refresh" cardrefresh=""></i>
+              <i class="icofont icofont-close-circled"></i>
+            </div>
+          </div>
+            <div class="card-body table-border-style">
+
+              <div _ngcontent-c6="" class="row">
+                <div _ngcontent-c6="" class="col-sm-12">
+                  <div _ngcontent-c6="" class="table-responsive">
+                    <table _ngcontent-c6="" class="table  invoice-detail-table">
+                      <thead _ngcontent-c6="">
+                      <tr _ngcontent-c6="" class="thead-default">
+                        <th _ngcontent-c6="">Description</th>
+                        <th _ngcontent-c6="">Quantity</th>
+                        <th _ngcontent-c6="">Prix Unit</th>
+                        <th _ngcontent-c6="">TVA</th>
+
+                        <th _ngcontent-c6="">Total</th>
+                      </tr>
+                      </thead>
+                      <tbody _ngcontent-c6="" >
+                      <tr _ngcontent-c6="" *ngFor="let ligne of ligneDevisData">
+                        <td _ngcontent-c6="">
+                          <h6 _ngcontent-c6="">{{ ligne.NomProduit }}</h6>
+                         <div style="width: 500px;"><p style="overflow: hidden;text-overflow: ellipsis;">{{ligne.DescriptionProduit    }}</p></div>
+                        </td>
+                        <td _ngcontent-c6="">{{ ligne.Qte }}</td>
+                        <td _ngcontent-c6="">{{ ligne.PUHT }}</td>
+                        <td _ngcontent-c6="">{{ ligne.TVA }}%</td>
+                        <td _ngcontent-c6="">{{ ligne.Qte*ligne.PUHT }}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div _ngcontent-c6="" class="row">
+                <div _ngcontent-c6="" class="col-sm-12">
+                  <table _ngcontent-c6="" class="table table-responsive invoice-table invoice-total">
+                    <tbody _ngcontent-c6="">
+                    <tr _ngcontent-c6="">
+                      <th _ngcontent-c6="">Montant HT :</th>
+                      <td _ngcontent-c6="">{{ post.MontantHT }}</td>
+                    </tr>
+                    <tr _ngcontent-c6="">
+                      <th _ngcontent-c6="">Montant TVA:</th>
+                      <td _ngcontent-c6="">{{ post.MontantTVA }}</td>
+                    </tr>
+                    <tr _ngcontent-c6="">
+                      <th _ngcontent-c6="">Montant Reduction :</th>
+                      <td _ngcontent-c6="">{{ (post.MontantTVA+post.MontantHT-post.MontantTTC).toFixed(2) }}</td>
+                    </tr>
+                    <tr _ngcontent-c6="" class="text-info">
+                      <td _ngcontent-c6="">
+                        <hr _ngcontent-c6="">
+                        <h5 _ngcontent-c6="" class="text-primary">Montant TTC :</h5>
+                      </td>
+                      <td _ngcontent-c6="">
+                        <hr _ngcontent-c6="">
+                        <h5 _ngcontent-c6="" class="text-primary">{{ post.MontantTTC }}</h5>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+          </ng-template>
+        </ngb-tab>
+
+          <ngb-tab id="tab-seleectbyid3">
+              <ng-template ngbTabTitle><b>Les Notes</b></ng-template>
+              <ng-template ngbTabContent>
+
+                  <div class="card-body table-border-style">
+                      <div _ngcontent-c11="" class="table-responsive">
+                          <table _ngcontent-c11="" class="table" class="table table-hover">
+                              <thead _ngcontent-c11="" >
+                              <tr _ngcontent-c11="" >
+                                  <th _ngcontent-c11="">Note Priver</th>
+                                  <th _ngcontent-c11="">{{ post.NotePriver }}</th>
+                              </tr>
+                              </thead>
+                              <tbody _ngcontent-c11="">
+                              <tr _ngcontent-c11=""  >
+                                  <td _ngcontent-c11="" scope="row">Note Public</td>
+                                  <td _ngcontent-c11="">{{ post.NotePublic }}</td>
+                              </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+
+              </ng-template>
+          </ngb-tab>
+      </ngb-tabset>
+   </div>
+
+
+    </card>
+    <ng2-toasty [position]="position"></ng2-toasty>

@@ -1,0 +1,270 @@
+<card [title]="'Vehicles list '" [classHeader]="true" [blockClass]="'table-border-style'">
+
+  <div _ngcontent-c6="" class="table-responsive">
+
+    <card cardTitle="Data Table">
+
+      <table _ngcontent-c6=""  class="table table-hover" >
+
+        <thead _ngcontent-c6="">
+        <tr class='table-filters'>
+          <th class="text-center priority-1" style=" width: 3%;"> <input _ngcontent-c6="" class="form-control form-control-success" (click)="resizepage()" placeholder="Matricule" type="text"> </th>
+          <th class="text-center priority-7" style="width: 8%;">  <input _ngcontent-c6="" class="form-control form-control-success" (click)="resizepage()"  placeholder="Marque" type="text"></th>
+          <th class="text-center priority-9" style="width: 5%;">  <input _ngcontent-c6="" class="form-control form-control-success" (click)="resizepage()" placeholder="Model" type="text"></th>
+          <!-- <th class="text-center priority-2" style="width: 5%;"> <input _ngcontent-c6="" class="form-control form-control-success" (click)="resizepage()"  placeholder="Client" type="text"> </th> -->
+          <th class="text-center priority-1" style=" width: 3%;">
+            <select _ngcontent-c6="" id="client_select" class="form-control form-control-success">
+              <option value="">Select Client</option>
+              <option *ngFor="let single_costumer of costumers" _ngcontent-c10="" value="{{single_costumer.name}}">{{single_costumer.name}}</option>
+            </select>
+          </th>
+
+          <th class="text-center priority-3" style="width: 5%;"> <button class="btn  btn-outline-primary" (click)="open(content)"><i class="icofont icofont-ui-add"></i>Add Vehicule</button>  </th>
+
+
+        <tr>
+          <th class="text-center priority-1" style=" width: 1%;"> Matricule </th>
+          <th class="text-center priority-7" style="width: 8%;"> Marque </th>
+          <th class="text-center priority-9" style="width: 5%;"> Model </th>
+          <th class="text-center priority-2" style="width: 5%;"> Client </th>
+          <th class="text-center priority-2" style="width: 5%;"> Action </th>
+        </tr>
+
+        </thead>
+
+        <tbody _ngcontent-c6="">
+
+        <tr *ngFor="let post of vehiculeData | paginate: { id: 'pager', itemsPerPage: pageSize, currentPage: pageNumber};let index = index" class='table-data'>
+
+          <td (click)="open(contentVehicle,post)" style="text-align:center">{{post.imei}}</td>
+          <td (click)="open(contentVehicle,post)" style="text-align:center">{{post.marque}}</td>
+          <td (click)="open(contentVehicle,post)" style="text-align:center">{{post.model}}</td>
+          <td (click)="open(contentVehicle,post)" style="text-align:center">{{post.name}}</td>
+
+
+          <td style="text-align:center"   ><button type="button" class="btn btn-outline-success" (click)="open(contentProviderUpdate)"><i class="icofont icofont-edit"></i>Edit</button>
+            <button type="button" class="btn btn-outline-danger" (click)="opensm(contentProviderDelete)"><i class="icofont icofont-ui-delete"></i>Delete</button></td>
+
+
+          <ng-template #contentProviderDelete let-c="close" let-d="dismiss">
+            <div class="modal-header" style="background-color: #DD4B39">
+              <h4 class="modal-title" style="color: white">Delete Provider</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <dl class="row">
+
+                <dt class="col-sm-3">Matricule</dt>
+                <dd class="col-sm-3">{{post.imei}}</dd>
+
+                <dt class="col-sm-3">Marque</dt>
+                <dd class="col-sm-3">{{post.marque}}</dd>
+
+                <dt class="col-sm-3">Model</dt>
+                <dd class="col-sm-3">{{post.model}}</dd>
+
+                <dt class="col-sm-3">Client</dt>
+                <dd class="col-sm-3">{{post.name}}</dd>
+
+              </dl>
+
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger btn-square" (click)="delete(post);d('Cross click')"><i class="icofont icofont-warning-alt"></i> Delete</button>
+              <button type="button" class="btn btn-warning btn-square"  (click)="d('Cross click')">Cancel</button>
+            </div>
+          </ng-template>
+
+
+
+
+
+          <ng-template #contentProviderUpdate let-c="close" let-d="dismiss">
+            <div class="modal-header" style="background-color: #4cd787">
+              <h4 class="modal-title" id="modal-basic-title" style="color: white">Update Vehicule</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+
+              <form method="post" action="" [formGroup]="myformUpdate" (ngSubmit)="onUpdate(post.id,post.imei,post.marque,post.model,post.costumer_id); d('Cross click');">
+                <div class="form-group">
+                  <label  class="col-form-label">Matricule :</label>
+                  <input type="text" class="form-control"  value='{{post.imei}}' formControlName="imei" ngModel>
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label">Marque :</label>
+                  <input type="text" class="form-control"  value='{{post.marque}}' formControlName="marque" ngModel>
+                </div>
+                <div class="form-group">
+                  <label  class="col-form-label">Model :</label>
+                  <input type="text" class="form-control"  value='{{post.model}}' formControlName="model" ngModel>
+                </div>
+                <div class="form-group">S
+                  <label class="col-form-label">Client :</label>
+                  <select _ngcontent-c10="" class="form-control" formControlName="costumer_id" value="{{post.costumer_id}}" ngModel>
+                    <option *ngFor="let single_costumer of costumers" _ngcontent-c10="" value="{{single_costumer.id}}">{{single_costumer.name}}</option>
+                  </select>
+                </div>
+
+
+
+                <div class="modal-footer">
+                  <button class="btn btn-danger" (click)="c('Close click')">Cancel</button>
+                  <button type="submit" value="Submit" class="btn btn-success"><i class="icofont icofont-edit"></i>Update</button>
+
+                </div>
+
+              </form>
+            </div>
+
+          </ng-template>
+
+
+
+
+
+          <ng-template #contentVehicle let-c="close" let-d="dismiss">
+            <div class="modal-header" style="background-color: #00AEEF">
+              <h4 class="modal-title" style="color: white">Detail Provider</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <dl class="row">
+                <dt class="col-sm-3">Matricule</dt>
+                <dd class="col-sm-3">{{post.imei}}</dd>
+
+                <dt class="col-sm-3">Marque</dt>
+                <dd class="col-sm-3">{{post.marque}}</dd>
+
+                <dt class="col-sm-3">Model</dt>
+                <dd class="col-sm-3">{{post.model}}</dd>
+
+                <dt class="col-sm-3">Client</dt>
+                <dd class="col-sm-3">{{post.name}}</dd>
+
+
+              </dl>
+              <!-- /.panel-body -->
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
+            </div>
+          </ng-template>
+
+
+
+        </tbody>
+
+
+
+
+
+
+
+      </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <form class="pagination-wrapper">
+        <div class="form-group pages" style="margin-left: 8px">
+          <pagination-controls class="my-pagination" id="pager" (pageChange)="pageChanged($event)"  directionLinks="true"
+                               autoHide="true" previousLabel="Prev" nextLabel="Next" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+                               screenReaderCurrentLabel="You're on page">
+          </pagination-controls>
+        </div>
+        <div class="form-group options pages" style="margin-right: 8px">
+          <div class="input-group input-group-sm">
+            <select class="form-control" name="pageChangedName" [(ngModel)]="pageSize" (ngModelChange)="getVehicles()">
+              <option>1</option>
+              <option>5</option>
+              <option>10</option>
+              <option>20</option>
+              <option>50</option>
+              <option>100</option>
+              <option>200</option>
+            </select>
+            <span class="input-group-addon addon-right">Per Page</span>
+          </div>
+        </div>
+      </form>
+
+
+
+
+
+    </card>
+  </div>
+
+
+
+
+</card>
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header" style="background-color: #4cd787">
+    <h4 class="modal-title" id="modal-basic-title" style="color: white">Add vehicule</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <form method="post" action="" [formGroup]="myform" (ngSubmit)="onSubmit();c('Close click')" >
+      <div class="form-group">
+        <label class="col-form-label">Matricule :</label>
+        <input type="text" class="form-control" formControlName="imei" ngModel required>
+
+        <label class="col-form-label">Marque :</label>
+        <input type="text" class="form-control"  formControlName="marque" ngModel required>
+
+        <label class="col-form-label">Model :</label>
+        <input type="text" class="form-control"  formControlName="model" ngModel required>
+
+        <label class="col-form-label">Client :</label>
+        <select _ngcontent-c10="" class="form-control" formControlName="costumer_id" ngModel required >
+          <option *ngFor="let single_costumer of costumers" _ngcontent-c10="" value="{{single_costumer.id}}">{{single_costumer.name}}</option>
+        </select>
+
+        <input type="hidden" formControlName="user_id" ngModel value="1">
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-danger" (click)="c('Close click')">Cancel</button>
+        <button type="submit" value="Submit" class="btn btn-success"><i class="icofont icofont-ui-add"></i>Add</button>
+      </div>
+
+    </form>
+  </div>
+
+</ng-template>
+
+<ng2-toasty [position]="position"></ng2-toasty>

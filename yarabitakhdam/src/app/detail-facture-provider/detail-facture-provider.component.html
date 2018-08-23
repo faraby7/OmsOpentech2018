@@ -1,0 +1,358 @@
+
+    <card class="ng-tns-c10-62 ng-tns-c4-63"><div class="card ng-trigger ng-trigger-cardClose" style="opacity: 1;" *ngFor="let post of factureData ">
+      <!----><div class="card-header ng-tns-c4-63">
+      <h5 class="ng-tns-c4-63">Detaill Facture</h5>
+      <!----><span class="ng-tns-c4-63">Réf.{{ post.RefFacture }}</span>
+      <!---->
+      <div class="card-header-right">
+        <i class="icofont icofont-rounded-down" cardtoggleevent=""></i>
+        <i class="icofont icofont-refresh" cardrefresh=""></i>
+        <i class="icofont icofont-close-circled"></i>
+
+      </div>
+    </div>
+      <ngb-tabset #t="ngbTabset">
+
+        <ngb-tab id="tab-selectbyid1" title="Fiche Facture">
+
+          <ng-template ngbTabContent>
+
+            <div class="card-body table-border-style">
+            <div _ngcontent-c11="" class="table-responsive">
+
+              <table _ngcontent-c11="" class="table table-hover">
+                <tbody _ngcontent-c11="">
+                <tr _ngcontent-c11="">
+                  <td _ngcontent-c11="">Réf.</td>
+                  <td _ngcontent-c11="">{{ post.RefFacture }}</td>
+
+                </tr>
+                <tr _ngcontent-c11="">
+                  <td _ngcontent-c11="">Fournisseur</td>
+                  <td _ngcontent-c11="">{{ post.name }}</td>
+                </tr>
+                <tr _ngcontent-c11="">
+                  <td _ngcontent-c11="">Téléphone</td>
+                  <td _ngcontent-c11="">{{ post.phone_number }} </td>
+                </tr>
+
+                <tr _ngcontent-c11="">
+                  <td _ngcontent-c11="">Date Facture</td>
+                  <td _ngcontent-c11="">{{ post.DateFacture.slice(0,10) }}</td>
+                </tr>
+
+                <tr _ngcontent-c11="">
+                  <td _ngcontent-c11="">Date Echance</td>
+                  <td _ngcontent-c11="">{{ post.DateEcheance.slice(0,10) }}</td>
+                </tr>
+                <tr _ngcontent-c11="">
+                  <td _ngcontent-c11="">État</td>
+                  <td _ngcontent-c11=""> <div *ngIf="post.EtatFacture == 0">
+                    <span class="label label-inverse-primary">Brouillon </span>
+                  </div>
+                    <div *ngIf="post.EtatFacture == 1">
+                      <span class="label label-inverse-danger">Impayee </span>
+                    </div>
+                    <div *ngIf="post.EtatFacture == 2">
+                          <span class="label label-inverse-warning"> Commencer </span>
+                      </div>
+                      <div *ngIf="post.EtatFacture == 3">
+                          <span class="label label-inverse-warning"> payée </span>
+                      </div>
+                  </td>
+                </tr>
+                <tr _ngcontent-c11="">
+                  <td _ngcontent-c11="">Reglement</td>
+                  <td _ngcontent-c11=""><div class="card-body table-border-style">
+
+
+                    <div _ngcontent-c11="" class="table-responsive">
+                      <table _ngcontent-c11="" class="table">
+                        <thead _ngcontent-c11="" >
+                        <tr _ngcontent-c11="">
+                          <th _ngcontent-c11="">Ref Règlements</th>
+                          <th _ngcontent-c11="">Date</th>
+                          <th _ngcontent-c11="">Type</th>
+                          <th _ngcontent-c11="">Montant</th>
+                          <th _ngcontent-c11="">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody _ngcontent-c11="">
+                        <tr _ngcontent-c11=""  class="table-info" *ngFor="let reglement of ReglementFatureData">
+                          <th _ngcontent-c11="" scope="row">{{ reglement.NumCheque }}</th>
+                          <td _ngcontent-c11="">{{ reglement.DateReglement }}</td>
+                          <td _ngcontent-c11="">
+                              <div *ngIf="reglement.ModePaiement == 0">
+                              <span class="badge badge-pill badge-primary">Cheque </span>
+                          </div>
+                              <div *ngIf="reglement.ModePaiement== 1">
+                                  <span class="badge badge-pill badge-warning">Espèce </span>
+                              </div>
+                              <div *ngIf="reglement.ModePaiement == 2">
+                                  <span class="badge badge-pill badge-danger"> virement </span>
+                              </div>
+
+                          </td>
+                          <td _ngcontent-c11="">{{ reglement.Montant }}</td>
+                          <td _ngcontent-c11="" class="action-icon">
+                            <a _ngcontent-c3="" class="crm-action-delete text-muted text-danger" (click)="deleteReglement(reglement)" href="javascript:;"><i _ngcontent-c11="" class="icofont icofont-delete-alt"></i></a>
+                          </td>
+
+
+                        </tr>
+
+
+                        </tbody>
+                      </table>
+                    </div>
+
+                  </div></td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+            <!----><div class="card-header ng-tns-c4-63">
+            <h5 class="ng-tns-c4-63">Description Facture</h5>
+            <!----><span class="ng-tns-c4-63">Réf. S5123d3</span>
+            <!---->
+            <div class="card-header-right">
+              <i class="icofont icofont-rounded-down" cardtoggleevent=""></i>
+              <i class="icofont icofont-refresh" cardrefresh=""></i>
+              <i class="icofont icofont-close-circled"></i>
+            </div>
+          </div>
+            <div class="card-body table-border-style">
+
+              <div _ngcontent-c6="" class="row">
+                <div _ngcontent-c6="" class="col-sm-12">
+                  <div _ngcontent-c6="" class="table-responsive">
+                    <table _ngcontent-c6="" class="table  invoice-detail-table">
+                      <thead _ngcontent-c6="">
+                      <tr _ngcontent-c6="" class="thead-default">
+                        <th _ngcontent-c6="">Description</th>
+                        <th _ngcontent-c6="">Quantity</th>
+                        <th _ngcontent-c6="">Prix Unit</th>
+                        <th _ngcontent-c6="">TVA</th>
+
+                        <th _ngcontent-c6="">Total</th>
+                      </tr>
+                      </thead>
+                      <tbody _ngcontent-c6="" >
+                      <tr _ngcontent-c6="" *ngFor="let ligne of ligneFactureData">
+                        <td _ngcontent-c6="">
+                          <h6 _ngcontent-c6="">{{ ligne.NomProduit }}</h6>
+                         <div style="width: 500px;"><p style="overflow: hidden;text-overflow: ellipsis;">{{ligne.DescriptionProduit    }}</p></div>
+                        </td>
+                        <td _ngcontent-c6="">{{ ligne.Qte }}</td>
+                        <td _ngcontent-c6="">{{ ligne.PUHT }}</td>
+                        <td _ngcontent-c6="">{{ ligne.TVA }}%</td>
+                        <td _ngcontent-c6="">{{ ligne.Qte*ligne.PUHT }}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div _ngcontent-c6="" class="row">
+                <div _ngcontent-c6="" class="col-sm-12">
+                  <table _ngcontent-c6="" class="table table-responsive invoice-table invoice-total">
+                    <tbody _ngcontent-c6="">
+                    <tr _ngcontent-c6="">
+                      <th _ngcontent-c6="">Montant HT :</th>
+                      <td _ngcontent-c6="">{{ post.MontantHT }}</td>
+                    </tr>
+                    <tr _ngcontent-c6="">
+                      <th _ngcontent-c6="">Montant TVA:</th>
+                      <td _ngcontent-c6="">{{ post.MontantTVA }}</td>
+                    </tr>
+                    <tr _ngcontent-c6="">
+                      <th _ngcontent-c6="">Montant Reduction :</th>
+                      <td _ngcontent-c6="">{{ (post.MontantTVA+post.MontantHT-post.MontantTTC).toFixed(2) }}</td>
+                    </tr>
+                    <tr _ngcontent-c6="" class="text-info">
+                      <td _ngcontent-c6="">
+                        <hr _ngcontent-c6="">
+                        <h5 _ngcontent-c6="" class="text-primary">Montant TTC :</h5>
+                      </td>
+                      <td _ngcontent-c6="">
+                        <hr _ngcontent-c6="">
+                        <h5 _ngcontent-c6="" class="text-primary">{{ post.MontantTTC }}</h5>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab id="tab-seleectbyid2">
+          <ng-template ngbTabTitle><b>Règlements</b></ng-template>
+          <ng-template ngbTabContent>
+
+            <div class="card-body table-border-style">
+            <div _ngcontent-c11="" class="table-responsive">
+              <button *ngIf="post.EtatFacture != 3" _ngcontent-c4="" class="btn  btn-outline-primary bottomreglement" (click)="open(content)" style="margin-top: 10px; margin-bottom: 10px;"><i _ngcontent-c4="" class="icofont icofont-ui-add"></i>Ajouter Reglement</button>
+              <table _ngcontent-c11="" class="table" class="table table-hover">
+                <thead _ngcontent-c11="" >
+                <tr _ngcontent-c11="">
+                  <th _ngcontent-c11="">Ref Règlements</th>
+                  <th _ngcontent-c11="">Date</th>
+                  <th _ngcontent-c11="">Type</th>
+                  <th _ngcontent-c11="">Montant</th>
+                </tr>
+                </thead>
+                <tbody _ngcontent-c11="">
+                <tr _ngcontent-c11=""  class="table-info" *ngFor="let reglement of ReglementFatureData">
+                    <th _ngcontent-c11="" scope="row">{{ reglement.NumCheque }}</th>
+                    <td _ngcontent-c11="">{{ reglement.DateReglement }}</td>
+                    <td _ngcontent-c11="">
+                        <div *ngIf="reglement.ModePaiement == 0">
+                            <span class="badge badge-pill badge-primary">Cheque </span>
+                        </div>
+                        <div *ngIf="reglement.ModePaiement== 1">
+                            <span class="badge badge-pill badge-warning">Espèce </span>
+                        </div>
+                        <div *ngIf="reglement.ModePaiement == 2">
+                            <span class="badge badge-pill badge-danger"> virement </span>
+                        </div>
+                    </td>
+                    <td _ngcontent-c11="">{{ reglement.Montant }}</td>
+                </tr>
+                </tbody>
+              </table>
+
+
+
+            </div>
+          </div>
+
+            <!----><div class="card-header ng-tns-c4-63">
+            <h5 class="ng-tns-c4-63">Reste Facture</h5>
+            <!----><span class="ng-tns-c4-63">Réf. S5123d3</span>
+            <!---->
+            <div class="card-header-right">
+              <i class="icofont icofont-rounded-down" cardtoggleevent=""></i>
+              <i class="icofont icofont-refresh" cardrefresh=""></i>
+              <i class="icofont icofont-close-circled"></i>
+            </div>
+          </div>
+            <div class="card-body table-border-style">
+              <div _ngcontent-c11="" class="table-responsive">
+                <table _ngcontent-c11="" class="table" class="table table-hover">
+                  <thead _ngcontent-c11="">
+                  <tr _ngcontent-c11="" class="table-active">
+                    <th _ngcontent-c11="">Déjà réglé :</th>
+                    <th _ngcontent-c11="">{{ post.MontantReglement}}</th>
+                  </tr>
+                  </thead>
+                  <tbody _ngcontent-c11="">
+                  <tr _ngcontent-c11="" >
+                    <td _ngcontent-c11="">Facturé :	</td>
+                    <td _ngcontent-c11="">{{post.MontantTTC}}</td>
+                  </tr>
+                  <tr _ngcontent-c11="">
+                    <td _ngcontent-c11="">Reste à payer :</td>
+                    <td _ngcontent-c6=""  *ngIf=" (post.MontantTTC-post.MontantReglement) > 0 ">{{ (post.MontantTTC-post.MontantReglement).toFixed(2) }}</td>
+                    <td _ngcontent-c6=""  *ngIf=" (post.MontantTTC-post.MontantReglement) < 0 ">0</td>
+
+                  </tr>
+
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+          </ng-template>
+        </ngb-tab>
+
+          <ngb-tab id="tab-seleectbyid3">
+              <ng-template ngbTabTitle><b>Les Notes</b></ng-template>
+              <ng-template ngbTabContent>
+
+                  <div class="card-body table-border-style">
+                      <div _ngcontent-c11="" class="table-responsive">
+                          <table _ngcontent-c11="" class="table" class="table table-hover">
+                              <thead _ngcontent-c11="" >
+                              <tr _ngcontent-c11="" >
+                                  <th _ngcontent-c11="">Note Priver</th>
+                                  <th _ngcontent-c11="">{{ post.NotePriver }}</th>
+                              </tr>
+                              </thead>
+                              <tbody _ngcontent-c11="">
+                              <tr _ngcontent-c11=""  >
+                                  <td _ngcontent-c11="" scope="row">Note Public</td>
+                                  <td _ngcontent-c11="">{{ post.NotePublic }}</td>
+                              </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+
+              </ng-template>
+          </ngb-tab>
+      </ngb-tabset>
+   </div>
+
+
+      <ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header" style="background-color: #4cd787">
+          <h4 class="modal-title" id="modal-basic-title" style="color: white">Ajouter Reglement</h4>
+          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <form method="post" action="" [formGroup]="myform" (ngSubmit)="onSubmit()" >
+            <div class="form-group">
+              <label class="col-form-label">Montant Reglement:</label><span _ngcontent-c4="" class="col-form-label" style="color: red">  *Example:1245.03 </span>
+              <input type="number" class="form-control" formControlName="Montant" required pattern="[0-9]+"  >
+
+              <label class="col-form-label">Date Reglement</label>
+              <input type="date" class="form-control" formControlName="DateReglement" ngModel required >
+
+              <label class="col-form-label">Compte</label>
+              <select _ngcontent-c10="" class="form-control" formControlName="BanqueID" ngModel  >
+                <option _ngcontent-c10="" *ngFor="let banque of allBanques" [value]=banque.id >{{ banque.Nom }}</option>
+              </select>
+
+              <label class="col-form-label">Mode Paiement</label>
+              <select   (change)="showDiv($event)"  _ngcontent-c10="" class="form-control" formControlName="ModePaiement" ngModel>
+                <option _ngcontent-c10="" value="0"> chèques</option>
+                <option _ngcontent-c10="" value="1"> espèces</option>
+                <option _ngcontent-c10="" value="2"> virement</option>
+                <option _ngcontent-c10="" value="3"> Traite</option>
+              </select>
+
+
+              <div id="cheque"  style="display:none">
+
+                <label  class="col-form-label">Numéro chèque:</label>
+                <input type="text" class="form-control" formControlName="NumCheque"  >
+
+                <label class="col-form-label">Banque</label>
+
+                <input type="text" class="form-control" formControlName="Banque">
+
+
+              </div>
+
+            </div>
+
+            <div class="modal-footer">
+              <button class="btn btn-danger" (click)="c('Close click')">Cancel</button>
+              <button type="submit" value="Submit" class="btn btn-success" [disabled]="myform.invalid"><i class="icofont icofont-ui-add"></i>Add</button>
+            </div>
+
+          </form>
+
+        </div>
+
+      </ng-template>
+
+    </card>
+    <ng2-toasty [position]="position"></ng2-toasty>

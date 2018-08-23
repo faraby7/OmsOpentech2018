@@ -1,0 +1,27 @@
+<h1 xmlns="">Opentech Api</h1>
+
+
+<button (click)="getInstallerAll()">Get installer</button>
+
+
+<table class="table table-bordered" id="liste">
+  <thead>
+  <tr>
+    <th class="text-center priority-1" style="width: 8%;"> fisrt_name </th>
+    <th class="text-center priority-7" style="width: 8%;"> last_name </th>
+    <th class="text-center priority-8" style="width: 8%;"> phone </th>
+    <th class="text-center priority-9" style="width: 5%;"> mail </th>
+    <th class="text-center priority-2" style="width: 5%;"> cin </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let instal of Installers  ">
+    <td>{{ instal?.fisrt_name }}</td>
+    <td>{{ instal?.last_name }}</td>
+    <td>{{ instal?.phone }}</td>
+    <td>{{ instal?.mail }}</td>
+    <td>{{ instal?.cin }}</td>
+  </tr>
+
+  </tbody>
+</table>

@@ -1,0 +1,645 @@
+<script src="https://use.fontawesome.com/67749231ea.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+
+<style>
+  .contentProviderUpdate_table{
+    width: 100%;
+  }
+  .contentProviderUpdate_table td{
+    text-align: center;
+  }
+  .first_ligne{
+       font-weight: bold;
+    color: #00ACED;
+  }
+  .btn-outline-check{
+       background: none;
+       border-color: #00ACED;
+       color: #00ACED;
+  }
+
+  #fill_up_car:hover{
+      background: #ffffff;
+  }
+
+  .button_action{
+      background: none;
+      bor
+  }
+
+  .form_red label,.form_red label .col-form-label,.first_ligne1{
+     color: #e74c3c !important;
+    font-weight: bold;
+  }
+
+
+  #upload_div{
+    cursor: pointer;
+    width: 10%;
+    margin-bottom: 15px;
+    background-size: 100% 100%;
+    background-image: url("../../assets/images/upload.png");
+    height: 40px;
+  }
+
+  #new_tr{
+    width: 80% ;
+  }
+
+  #new_tr input,#new_tr select{
+    margin-bottom: 12px;
+  }
+
+  .btn-outline-stop{
+    background: none;
+    border-color: #ff8000;
+    color: #ff8000;
+  }
+
+  .btn-outline-check:hover{
+     background: #00ACED;
+     color: #ffffff;
+   }
+  .btn-outline-download{
+     color: black;
+  }
+  .btn-outline-stop:hover{
+    background: #ff8000;
+    color: #ffffff;
+  }
+  .center_buttons button{
+    width: 40%;
+    border: none;
+    height: 40px;
+    color: #ffffff;
+    background: #00ACED;
+    border-radius: 3px;
+  }
+  .center_buttons{
+    right: 0;
+    width: 60%;
+    margin: 30px auto 20px;
+    align-items: flex-start;
+  }
+  .center_buttons button:hover{
+     border: 2px solid #00ACED;
+     color: #00ACED;
+     background: none;
+     transition: .7s;
+    cursor: pointer;
+  }
+  #intervention_modification{
+      width: 100%;
+    height: 50px;
+    background: #dffd8b;
+  }
+  #update_intervention{
+      color: #FFFFFF;
+      background: #00ACED;
+      border: none;
+      cursor: pointer;
+  }
+  .table-hover th,.table-hover td{
+      text-align: center;
+  }
+
+  .ligne_action{
+      background: none;
+    color: black;
+    font-size: 14px;
+    border: none;
+  }
+  .action_class{
+      float: left;
+      position: relative;
+      padding-left: 20px;
+      box-sizing: border-box;
+  }
+  .see_intrvtn{
+      background: none;
+      color: #222222;
+      border: 1px solid #222222;
+     border-radius: 2px;
+  }
+
+</style>
+
+
+<card [title]="'Liste Intervenant'" [classHeader]="true" [blockClass]="'table-border-style'">
+  <div _ngcontent-c6="" class="table-responsive">
+    <card cardTitle="Data Table">
+
+      <table _ngcontent-c6=""  class="table table-hover" >
+        <thead _ngcontent-c6="">
+        <tr class='table-filters'>
+          <th class="text-center priority-1" style=" width: 3%;"> <input _ngcontent-c6="" class="form-control form-control-success" (click)="resizepage()"  placeholder="Réf" type="text"> </th>
+          <th class="text-center priority-7" style="width: 8%;">  <input _ngcontent-c6="" class="form-control form-control-success" (click)="resizepage()"  placeholder="Date" type="text"></th>
+          <th class="text-center priority-9" style="width: 5%;">  <input _ngcontent-c6="" class="form-control form-control-success"(click)="resizepage()" placeholder="Intervenant " type="text"></th>
+          <th class="text-center priority-2" style="width: 5%;"> <input _ngcontent-c6="" class="form-control form-control-success" (click)="resizepage()"  placeholder="Client" type="text"> </th>
+          <th class="text-center priority-3" style="width: 5%;">  <input _ngcontent-c6="" class="form-control form-control-success" (click)="resizepage()"  placeholder="État" type="text"></th>
+          <th class="text-center priority-3" style="width: 5%;">  <input _ngcontent-c6="" class="form-control form-control-success" (click)="resizepage()"  placeholder="Remarque" type="text"></th>
+          <th class="text-center priority-3" style="width: 5%;">  <input _ngcontent-c6="" class="form-control form-control-success" (click)="resizepage()"  placeholder="Validation" type="text"></th>
+          <th class="text-center priority-3" style="width: 5%;"> <button class="btn  btn-outline-primary" (click)="open(content)"><i class="icofont icofont-ui-add"></i>Ajouter Intervention</button>  </th>
+        <tr>
+          <th class="text-center priority-1" style=" width: 1%;"> Réf.</th>
+          <th class="text-center priority-7" style="width: 8%;"> Date </th>
+          <th class="text-center priority-9" style="width: 5%;"> Intervenant </th>
+          <th class="text-center priority-2" style="width: 5%;"> Client </th>
+          <th class="text-center priority-3" style="width: 5%;"> État </th>
+          <th class="text-center priority-3" style="width: 5%;"> Remarque </th>
+          <th class="text-center priority-3" style="width: 5%;"> Validation </th>
+          <th class="text-center priority-3" style="width: 5%;"> Action </th>
+        </tr>
+        </thead>
+
+
+
+        <tbody _ngcontent-c6="">
+        <tr *ngFor="let post of InterventionsData | paginate: { id: 'pager', itemsPerPage: pageSize, currentPage: pageNumber};let index = index" class='table-data'>
+
+          <div *ngIf="post.intervened_at;then exist else not_exist"></div>
+          <ng-template #exist><td (click)="open(contentProduit,post)" style="text-align:center">{{replace_all(post.intervened_at.slice(2)+"")}}-{{post.id_instalateur}}-{{post.intervention_id}}</td></ng-template>
+          <ng-template #not_exist><td (click)="open(contentProduit,post)" style="text-align:center">{{post.id_instalateur}}-{{post.intervention_id}}</td></ng-template>
+          <td (click)="open(contentProduit,post)" style="text-align:center">{{post.intervened_at}}</td>
+          <td (click)="open(contentProduit,post)" style="text-align:center">{{post.first_name}} {{post.last_name}}</td>
+          <td (click)="open(contentProduit,post)" style="text-align:center">{{post.name}}</td>
+
+          <div *ngIf="post.status == 'En cours';then status_en_cours else status_termine"></div>
+              <ng-template #status_en_cours><td (click)="open(contentProduit,post)" style="text-align:center"><span class="badge badge-pill badge-danger">En Cours</span></td></ng-template>
+              <ng-template #status_termine><td (click)="open(contentProduit,post)" style="text-align:center"><span class="badge badge-pill badge-primary">Terminé</span></td></ng-template>
+
+          <td (click)="open(contentProduit,post)" style="text-align:center">{{post.remarque}}</td>
+          <div *ngIf="post.validation_resp == '0';then validation_not_ok else validation_ok"></div>
+              <ng-template #validation_not_ok><td (click)="open(contentProduit,post)" style="text-align:center"><span class="badge badge-pill badge-danger">Non Validée</span></td></ng-template>
+              <ng-template #validation_ok><td (click)="open(contentProduit,post)" style="text-align:center"><span class="badge badge-pill badge-primary">Validée</span></td></ng-template>
+          <td style="text-align:center"  class="action_class" >
+            <button type="button" class="btn btn-outline-check" (click)="open(contentProviderUpdate)"><i class="icofont icofont-edit"></i></button>
+            <button type="button" class="btn btn-outline-success" (click)="open(contentProviderUpdateEtat)"><i class="icofont icofont-ui-check"></i></button>
+            <button type="button" class="btn btn-outline-stop" (click)="open(contentProviderUpdateValidation)"><i class="icofont icofont-stop"></i></button>
+            <button type="button" class="btn btn-outline-danger" (click)="opensm(contentProviderDelete)"><i class="icofont icofont-ui-delete"></i></button>
+            <button type="button" class="btn see_intrvtn " (click)="getPdf(post.intervention_id)"><i class="fas fa-upload"></i></button>
+            <button *ngIf="post.upload != null" type="button" class="btn see_intrvtn " (click)="seeFile(post.upload)"><i class="fas fa-eye-slash"></i></button>
+
+          </td>
+
+
+
+
+          <ng-template #contentProviderDelete let-c="close" let-d="dismiss">
+            <div class="modal-header" style="background-color: #DD4B39">
+              <h4 class="modal-title" style="color: white">Delete Provider</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <dl class="row">
+
+                <dt class="col-sm-3">Ref</dt>
+                <div *ngIf="post.intervened_at;then exist_delete else not_exist_delete"></div>
+                <ng-template #exist_delete><dd class="col-sm-3">{{replace_all(post.intervened_at.slice(2)+"")}}-{{post.id_instalateur}}-{{post.intervention_id}}</dd></ng-template>
+                <ng-template #not_exist_delete><dd class="col-sm-3">{{post.id_instalateur}}-{{post.intervention_id}}</dd></ng-template>
+
+                <dt class="col-sm-3">Date</dt>
+                <dd class="col-sm-3">{{post.intervened_at}}</dd>
+
+                <dt class="col-sm-3">Intervenant</dt>
+                <dd class="col-sm-3">{{post.first_name}} {{post.last_name}}</dd>
+
+                <dt class="col-sm-3">Client</dt>
+                <dd class="col-sm-3">{{post.name}}</dd>
+
+                <dt class="col-sm-3">Etat</dt>
+                <dd class="col-sm-3">
+                    <div *ngIf="post.status == 'En cours';then status_en_cours else status_termine"></div>
+                    <ng-template #status_en_cours><td (click)="open(contentProduit,post)" style="text-align:center"><span class="badge badge-pill badge-danger">En Cours</span></td></ng-template>
+                    <ng-template #status_termine><td (click)="open(contentProduit,post)" style="text-align:center"><span class="badge badge-pill badge-primary">Terminé</span></td></ng-template>
+                </dd>
+
+                <dt class="col-sm-3">Remarque</dt>
+                <dd class="col-sm-3">{{post.remarque}}</dd>
+
+                <dt class="col-sm-3">Validation</dt>
+                <dd class="col-sm-3">
+                    <div *ngIf="post.validation_resp == '0';then validation_not_ok else validation_ok"></div>
+                    <ng-template #validation_not_ok><td (click)="open(contentProduit,post)" style="text-align:center"><span class="badge badge-pill badge-danger">Non Validée</span></td></ng-template>
+                    <ng-template #validation_ok><td (click)="open(contentProduit,post)" style="text-align:center"><span class="badge badge-pill badge-primary">Validée</span></td></ng-template>
+                </dd>
+
+              </dl>
+
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-warning btn-square"  (click)="d('Cross click')">Cancel</button>
+              <button type="button" class="btn btn-danger btn-square" (click)="delete(post);d('Cross click')"><i class="icofont icofont-warning-alt"></i> Delete</button>
+            </div>
+          </ng-template>
+
+
+          <ng-template #contentProviderUpdate let-c="close" let-d="dismiss">
+            <div class="modal-header" style="background-color: #00ACED">
+              <h4 class="modal-title" id="modal-basic-title" style="color: white">Update INTERVENTION</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+              <div class="modal-body">
+                <table class="contentProviderUpdate_table">
+                   <tr class="first_ligne">
+                     <td>DATE</td>
+                     <td>CLIENT</td>
+                     <td>INSTALLATEUR</td>
+                     <td>HEURE DEBUT</td>
+                     <td>HEURE FIN</td>
+                   </tr>
+                  <tr>
+                    <td>{{post.intervened_at}}</td>
+                    <td><span *ngIf="post.name">{{post.name}}</span></td>
+                    <td>{{post.first_name}} {{post.last_name}}</td>
+                    <td><span *ngIf="post.starthour">{{post.starthour}}</span></td>
+                    <td><span *ngIf="post.endhour">{{post.endhour}}</span></td>
+                  </tr>
+                </table>
+                <br>
+              </div>
+            <div class="modal-body" style="width: 85%;margin: -25px auto 0">
+              <form method="post" action="" enctype="multipart/form-data" (submit)="fileUpload(post.intervention_id,post.intervened_at,post.id,post.starthour,post.endhour);c('Close click')">
+                <div class="form-group">
+                  <label class="col-form-label" style="color: #00ACED;font-weight: bold">Date :</label>
+                       <input type="Date" class="form-control" value="{{post.intervened_at}}" id="date">
+                  <label class="col-form-label" style="color: #00ACED;font-weight: bold">Client :</label>
+                       <select _ngcontent-c10="" class="form-control" value="{{post.id}}" id="customer">
+                          <option *ngFor="let single_costumer of costumers" _ngcontent-c10="" value="{{single_costumer.id}}">{{single_costumer.name}}</option>
+                       </select>
+
+                  <label class="col-form-label" style="color: #00ACED;font-weight: bold">Heure Début :</label>
+                       <input type="time" class="form-control" value="{{post.starthour}}" id="start_date">
+
+                  <label class="col-form-label" style="color: #00ACED;font-weight: bold">Heure Fin :</label>
+                       <input type="time" class="form-control" value="{{post.endhour}}" id="end_date">
+
+                  <label class="col-form-label" style="color: #00ACED;font-weight: bold">Importer L'intervention :</label><br>
+                       <div id="upload_div" class="col-form-label" (click)="clicker()"></div>
+                       <input type="file" id="file_loader" placeholder="Upload file" accept=".jpg,.png" style="display: none">
+                  <div class="modal-footer">
+                    <!--<button type="button" class="btn btn-danger" (click)="getBoitiers();getCartSim();getVehiculs(post.id_costumer);getDetail(post.intervention_id);c('Close click');open(contentProviderLigne)">Nouvelle Ligne</button>-->
+                    <a href="../detail_intervention/{{post.intervention_id}}"><button type="button" class="btn btn-danger">Nouvelle Ligne</button></a>
+                    <button type="submit" value="Submit" class="btn btn-success"  style="background: #00ACED;border: none"  ><i class="icofont icofont-ui-add"></i>Modifier</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </ng-template>
+
+
+
+
+          <ng-template #contentProviderLigne let-c="close" let-d="dismiss">
+
+            <form method="post" action="" [formGroup]="myform2" (ngSubmit)="OnSubmitNewLigne(post.id_costumer,post.user_id,post.intervention_id)">
+              <div class="modal-header" style="background-color: #e74c3c;">
+                <h4 class="modal-title" style="color: #ffffff">Ajouter Nouvelle ligne</h4>
+              </div>
+              <div class="modal-body" style="width:100%;">
+
+                <table class="contentProviderUpdate_table">
+                  <tr class="first_ligne1">
+                    <td>DATE</td>
+                    <td>CLIENT</td>
+                    <td>INSTALLATEUR</td>
+                    <td>HEURE DEBUT</td>
+                    <td>HEURE FIN</td>
+                  </tr>
+                  <tr>
+                    <td>{{post.intervened_at}}</td>
+                    <td><span *ngIf="post.name">{{post.name}}</span></td>
+                    <td>{{post.first_name}} {{post.last_name}}</td>
+                    <td><span *ngIf="post.starthour">{{post.starthour}}</span></td>
+                    <td><span *ngIf="post.endhour">{{post.endhour}}</span></td>
+                  </tr>
+                </table>
+
+                <br>
+
+                <div class="card-body table-border-style">
+
+
+                  <div _ngcontent-c6="" class="table-responsive">
+                    <table _ngcontent-c6="" class="table table-hover">
+                      <thead _ngcontent-c6="">
+                      <tr _ngcontent-c6="">
+                        <th _ngcontent-c6="" style="width: 8%">Type</th>
+                        <th _ngcontent-c6="" style="width: 10%">Véhicule</th>
+                        <th _ngcontent-c6="" style="width: 20%">Boitier</th>
+                        <th _ngcontent-c10=""style="width: 20%">carte Sim</th>
+                        <th _ngcontent-c6="" style="width: 9%">kilometrage</th>
+                        <th _ngcontent-c3="" style="width: 10%">remarque</th>
+                        <th _ngcontent-c3="" style="width: 10%">durée</th>
+                        <th _ngcontent-c3="" style="width: 10%">Action</th>
+                      </tr>
+
+                      </thead>
+                      <tbody _ngcontent-c6="" class="add_line">
+
+                      <tr _ngcontent-c6="" *ngFor="let detail_item of detail">
+                        <td _ngcontent-c6="">{{detail_item.type}}</td>
+                        <td _ngcontent-c6="">{{detail_item.imei}}</td>
+                        <td _ngcontent-c6="">
+                            <div *ngIf="detail_item.imei_boitier==null; then box_cost else imei_box"></div>
+                            <ng-template #imei_box><span>{{detail_item.imei_boitier}}</span></ng-template>
+                            <ng-template #box_cost><span>{{detail_item.box_costumer}}</span></ng-template>
+                        </td>
+                        <td _ngcontent-c6="">
+                            <div *ngIf="detail_item.imei_carte==null; then carte_sim else imei_cart"></div>
+                            <ng-template #imei_cart><span>{{detail_item.imei_carte}}</span></ng-template>
+                            <ng-template #carte_sim><span>{{detail_item.sim_costumer}}</span></ng-template>
+                        </td>
+                        <td _ngcontent-c6="">{{detail_item.kilometrage}}</td>
+                        <td _ngcontent-c3="">{{detail_item.remarque_detail}}</td>
+                        <td _ngcontent-c3="">{{detail_item.remarque_detail}}</td>
+                        <td _ngcontent-c3="">{{detail_item.remarque_detail}}</td>
+                        <td _ngcontent-c3="">
+
+                        </td>
+                      </tr>
+
+
+
+                      <tr _ngcontent-c6="" id="fill_up_car">
+                        <th _ngcontent-c6="" scope="row">
+                          <select _ngcontent-c3="" class="form-control" formControlName="type_detail" ngModel>
+                            <option _ngcontent-c3="" value=""></option>
+                            <option _ngcontent-c3="" value="i">i</option>
+                            <option _ngcontent-c3="" value="d">d</option>
+                            <option _ngcontent-c3="" value="v">v</option>
+                            <option _ngcontent-c3="" value="r">r</option>
+                          </select>
+                        </th>
+
+                        <td _ngcontent-c6="">
+                          <select _ngcontent-c10="" class="form-control" formControlName="vehicule_select" ngModel id="veh_select">
+                            <option _ngcontent-c3="" value=""></option>
+                            <option *ngFor="let single_vehiculs of vehicule" _ngcontent-c10="" value="{{single_vehiculs.id}}">{{single_vehiculs.imei}}</option>
+                          </select>
+                          <input type="checkbox" value="1" id="new_car" (change)="display_car()">&nbsp;&nbsp;Nouveau véhicule
+                        </td>
+
+                        <td _ngcontent-c6="">
+                          <input type="text" class="form-control" id="boitier_if_client" style="border-color: red;display: none"  formControlName="box_costumer" ngModel>
+                          <select _ngcontent-c10="" class="form-control" id="boitier_if_opentech" formControlName="imei_boitier" ngModel >
+                            <option _ngcontent-c3="" value=""></option>
+                            <option *ngFor="let single_boitiers of Boitiers" _ngcontent-c10="" value="{{single_boitiers.imei_product}}">{{single_boitiers.imei_product}}</option>
+                          </select>
+                          <input type="checkbox" (change)="display_boitiers()" value="1" id="check_boitiers">&nbsp;&nbsp;Si un client
+                        </td>
+
+                        <td _ngcontent-c6="">
+                          <input type="text" class="form-control" id="carte_if_client" style="border-color: red;display: none"  formControlName="sim_costumer" ngModel>
+                          <select _ngcontent-c10="" class="form-control" id="carte_if_opentech" formControlName="imei_carte" ngModel>
+                            <option _ngcontent-c3="" value=""></option>
+                            <option *ngFor="let single_boitiers of cartesSim" _ngcontent-c10="" value="{{single_boitiers.imei_product}}">{{single_boitiers.imei_product}}</option>
+                          </select>
+                          <input type="checkbox" (change)="display_carte()" value="1" id="check_cartes">&nbsp;&nbsp;Si un client
+                        </td>
+
+                        <td _ngcontent-c6="">
+                          <input type="number" class="form-control" formControlName="kilometrage" ngModel autocomplete="off">
+                        </td>
+
+                        <td _ngcontent-c6="">
+                          <input type="text" class="form-control" formControlName="remarque" ngModel autocomplete="off">
+                        </td>
+
+                        <td _ngcontent-c6="">
+
+                        </td>
+
+                        <td _ngcontent-c6="">
+                          <button type="button" class="ligne_action" (click)="open(contentProviderUpdate)"><i class="icofont icofont-edit"></i></button>
+                          <button type="button" class="ligne_action" (click)="open(contentProviderUpdateEtat)"><i class="icofont icofont-ui-delete"></i></button>
+                        </td>
+
+                      </tr>
+                      </tbody>
+                    </table>
+                    <div id="new_tr"  style="margin: 15px auto 10px;display: none">
+                      <input type="text" class="form-control" placeholder="Matricule" formControlName="imei_vehicule_1" ngModel id="mat_1" autocomplete="off">
+                      <select class="form-control" formControlName="imei_vehicule_2" ngModel id="mat_2">
+                        <option value=""></option>
+                          <option value="WWW">WWW</option>
+                          <option value="A">A</option>
+                          <option value="B">B</option>
+                          <option value="C">C</option>
+                          <option value="D">D</option>
+                          <option value="E">E</option>
+                          <option value="F">F</option>
+                          <option value="G">G</option>
+                          <option value="H">H</option>
+                      </select>
+                      <select class="form-control" formControlName="imei_vehicule_3" ngModel id="mat_3">
+                        <option value=""></option>
+                        <option value="WWW">WWW</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                      </select>
+                      <input type="text" class="form-control" placeholder="Marque" formControlName="marque" ngModel id="marque" autocomplete="off">
+                      <input type="text" class="form-control" placeholder="Model" formControlName="model" ngModel id="model" autocomplete="off">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
+                      <button type="submit" value="Submit" class="btn btn-success" [disabled]="myform2.invalid" ><i class="icofont icofont-ui-add"></i>VALIDE</button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </form>
+
+          </ng-template>
+
+
+
+
+
+          <ng-template #contentProviderUpdateEtat let-c="close" let-d="dismiss">
+          <div class="modal-header" style="background-color: #4cd787">
+            <h4 class="modal-title" id="modal-basic-title" style="color: white">Update ETAT</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form method="post" action="" [formGroup]="myformUpdate" (ngSubmit)="onUpdateEtat(post.intervention_id,post.remarque); d('Cross click');">
+            <div class="modal-body">
+              <p style="font-size: 20px">Voulez-vous vraiment modifier l'état de l'intervention :</p>
+              <input type="text" formControlName="remarque" placeholder="Remarque" class="form-control" style="width: 70%;margin: 10px 30px 20px" value="{{post.remarque}}">
+              <div class="modal-footer">
+                <button class="btn btn-danger" (click)="c('Close click')">Cancel</button>
+                <button type="submit" value="Submit" class="btn btn-success"><i class="icofont icofont-edit"></i>Update</button>
+
+              </div>
+            </div>
+          </form>
+        </ng-template>
+
+
+          <ng-template #contentProviderUpdateValidation let-c="close" let-d="dismiss">
+            <div class="modal-header" style="background-color: #ff8000">
+              <h4 class="modal-title" id="modal-basic-title" style="color: white">Update VALIDATION</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form method="post" action="" [formGroup]="myformUpdate" (ngSubmit)="onUpdateValidation(post.intervention_id,post.remarque); d('Cross click');">
+            <div class="modal-body">
+              <p style="font-size: 20px">Voulez-vous vraiment modifier la validation de l'intervention :</p>
+              <input type="text" formControlName="remarque" placeholder="Remarque" class="form-control" style="width: 70%;margin: 10px 30px 20px" value="{{post.remarque}}">
+              <div class="modal-footer">
+                <button class="btn btn-danger" (click)="c('Close click')">Cancel</button>
+                <button type="submit" value="Submit" class="btn btn-success" style="background: #ff8000;border: none"><i class="icofont icofont-edit"></i>Update</button>
+
+              </div>
+            </div>
+            </form>
+          </ng-template>
+
+
+
+          <ng-template #contentProduit let-c="close" let-d="dismiss">
+            <div class="modal-header" style="background-color: #00AEEF">
+              <h4 class="modal-title" style="color: white">Detail Produit</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <dl class="row">
+                <dt class="col-sm-3">Ref</dt>
+                <div *ngIf="post.intervened_at;then exist_content else not_exist_content"></div>
+                <ng-template #exist_content><dd class="col-sm-3">{{replace_all(post.intervened_at.slice(2)+"")}}-{{post.id_instalateur}}-{{post.user_id}}</dd></ng-template>
+                <ng-template #not_exist_content><dd class="col-sm-3">{{post.id_instalateur}}-{{post.user_id}}</dd></ng-template>
+
+                <dt class="col-sm-3">Date</dt>
+                <dd class="col-sm-3">{{post.intervened_at}}</dd>
+
+                <dt class="col-sm-3">Intervenant</dt>
+                <dd class="col-sm-3">{{post.first_name}} {{post.last_name}}</dd>
+
+                <dt class="col-sm-3">Client</dt>
+                <dd class="col-sm-3">{{post.name}}</dd>
+
+                <dt class="col-sm-3">Etat</dt>
+                <dd class="col-sm-3">
+                  <div *ngIf="post.status == 'En cours';then status_en_cours else status_termine"></div>
+                  <ng-template #status_en_cours><td (click)="open(contentProduit,post)" style="text-align:center"><span class="badge badge-pill badge-primary">En Cours</span></td></ng-template>
+                  <ng-template #status_termine><td (click)="open(contentProduit,post)" style="text-align:center"><span class="badge badge-pill badge-danger">Terminé</span></td></ng-template>
+                </dd>
+
+                <dt class="col-sm-3">Remarque</dt>
+                <dd class="col-sm-3">{{post.remarque}}</dd>
+
+                <dt class="col-sm-3">Validation</dt>
+                <dd class="col-sm-3">
+                  <div *ngIf="post.validation_resp == '0';then validation_not_ok else validation_ok"></div>
+                  <ng-template #validation_not_ok><td (click)="open(contentProduit,post)" style="text-align:center"><span class="badge badge-pill badge-danger">Non Validée</span></td></ng-template>
+                  <ng-template #validation_ok><td (click)="open(contentProduit,post)" style="text-align:center"><span class="badge badge-pill badge-primary">Validée</span></td></ng-template>
+                </dd>
+              </dl>
+              <!-- /.panel-body -->
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
+            </div>
+          </ng-template>
+
+        </tr>
+
+
+      </table>
+
+      <form class="pagination-wrapper">
+        <div class="form-group pages" style="margin-left: 8px">
+          <pagination-controls class="my-pagination" id="pager" (pageChange)="pageChanged($event)"  directionLinks="true"
+                               autoHide="true" previousLabel="Prev" nextLabel="Next" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+                               screenReaderCurrentLabel="You're on page">
+          </pagination-controls>
+        </div>
+        <div class="form-group options pages" style="margin-right: 8px">
+          <div class="input-group input-group-sm">
+            <select class="form-control" name="pageChangedName" [(ngModel)]="pageSize" (ngModelChange)="getInterventions()">
+              <option>1</option>
+              <option>5</option>
+              <option>10</option>
+              <option>20</option>
+              <option>50</option>
+              <option>100</option>
+              <option>200</option>
+            </select>
+            <span class="input-group-addon addon-right">Per Page</span>
+          </div>
+        </div>
+      </form>
+
+
+    </card>
+  </div>
+
+</card>
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header" style="background-color: #4cd787">
+    <h4 class="modal-title" id="modal-basic-title" style="color: white">Add Intervention</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <form method="post" action="" [formGroup]="myform" (submit)="OnSubmit();c('Close click')">
+      <div class="form-group">
+        <label class="col-form-label">Date :</label>
+        <input type="Date" class="form-control" required formControlName="intervened_at" ngModel>
+
+        <label class="col-form-label">Client :</label>
+          <select _ngcontent-c10="" class="form-control"  formControlName="id_costumer" ngModel>
+            <option value=""></option>
+              <option *ngFor="let single_costumer of costumers" _ngcontent-c10="" value="{{single_costumer.id}}">{{single_costumer.name}}</option>
+          </select>
+
+        <label class="col-form-label">Installateur :</label>
+        <select _ngcontent-c10="" class="form-control" required formControlName="id_instalateur" ngModel>
+           <option *ngFor="let single_personal of personals" _ngcontent-c10="" value="{{single_personal.id}}">{{single_personal.first_name}} {{single_personal.last_name}}</option>
+        </select>
+
+        <label class="col-form-label">Nombre d'installations :</label>
+        <input type="number" class="form-control" required formControlName="nbr_installation" ngModel>
+          <input type="hidden" formControlName="user_id" ngModel value="1">
+
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="c('Close click')">Cancel</button>
+        <button type="submit" value="Submit" class="btn btn-success"><i class="icofont icofont-ui-add"></i>Add</button>
+      </div>
+
+    </form>
+  </div>
+
+</ng-template>
+
+
+<ng2-toasty [position]="position"></ng2-toasty>
+
+
+

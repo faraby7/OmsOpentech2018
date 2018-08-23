@@ -1,0 +1,309 @@
+<card [title]="'Factures Clients Interventions'" [classHeader]="false" [blockClass]="'table-border-style'"
+      xmlns="http://www.w3.org/1999/html">
+
+  <div _ngcontent-c6="" class="table-responsive">
+    <card cardTitle="Data Table">
+      <table _ngcontent-c6=""  class="table   table-striped  table-responsive  table-hover" >
+        <thead _ngcontent-c6="">
+        <tr class='table-filters'>
+          <th class="text-center priority-1" style=" width: 1%;"> <input _ngcontent-c6="" class="form-control form-control-info" (click)="resizepage()"  placeholder="Réf." type="text"> </th>
+          <th class="text-center priority-7" style="width: 1%;">  <input _ngcontent-c6="" class="form-control form-control-info" (click)="resizepage()"  placeholder="Client" type="text"></th>
+          <th class="text-center priority-7" style="width: 8%;">  <input _ngcontent-c6="" class="form-control form-control-info" (click)="resizepage()"  placeholder="Téléphone" type="text"></th>
+          <th class="text-center priority-9" style="width: 4%;">  <input _ngcontent-c6="" class="form-control form-control-info"(click)="resizepage()" placeholder="Date facturation" type="text"></th>
+          <th class="text-center priority-2" style="width: 4%;"> <input _ngcontent-c6="" class="form-control form-control-info" (click)="resizepage()"  placeholder="Date échéance" type="text"> </th>
+          <th class="text-center priority-3" style="width: 4%;">  <input _ngcontent-c6="" class="form-control form-control-info" (click)="resizepage()"  placeholder="Montant TTC" type="text"></th>
+          <th class="text-center priority-3" style="width: 4%;">
+            <select _ngcontent-c6="" class="form-control form-control-info" (click)="resizepage()">
+              <option value="">Select État</option>
+              <option value="Brouillon" _ngcontent-c10="">Brouillon</option>
+              <option value="Impayee" _ngcontent-c10="">Impayee</option>
+              <option value="Commencer" _ngcontent-c10="">Commencer</option>
+              <option value="payée" _ngcontent-c10="">payée</option>
+            </select></th>
+          <th class="text-center priority-3" style="width: 4%;"> </th>
+        <tr>
+          <th class="text-center priority-1" style=" width: 1%;"> Réf.</th>
+          <th class="text-center priority-7" style="width: 1%;"> Client</th>
+          <th class="text-center priority-7" style="width: 8%;">Téléphone</th>
+          <th class="text-center priority-9" style="width: 4%;"> Date facturation </th>
+          <th class="text-center priority-2" style="width: 4%;"> Date échéance</th>
+          <th class="text-center priority-3" style="width: 4%;">Montant TTC </th>
+          <th class="text-center priority-3" style="width: 4%;"> État </th>
+          <th class="text-center priority-3" style="width: 5%;"> Action  </th>
+        </tr>
+        </thead>
+        <tbody _ngcontent-c6="">
+        <tr *ngFor="let post of factureData | paginate: { id: 'pager', itemsPerPage: pageSize, currentPage: pageNumber};let index = index" class='table-data'>
+
+          <td style="text-align:center"><a [routerLink]="['../DetailFactureInterventionClient/'+post.id ]"  >Rf.{{ post.id }}</a></td>
+          <td (click)="openFacture(contentfactureProviderligne,post.id);" style="text-align:center">{{ post.name }}</td>
+          <td (click)="openFacture(contentfactureProviderligne,post.id);" style="text-align:center">{{ post.phone_number }}</td>
+          <td (click)="openFacture(contentfactureProviderligne,post.id);" style="text-align:center">{{ post.DateFacture.slice(0,10)}}</td>
+          <td (click)="openFacture(contentfactureProviderligne,post.id);" style="text-align:center">{{ post.DateEcheance.slice(0,10) }}</td>
+          <td (click)="openFacture(contentfactureProviderligne,post.id);" style="text-align:center">
+            <div *ngIf="post.MontantTTC == NULL">
+            <span class="label label-inverse-danger">Pas MontantTTC </span>
+            </div>
+            {{ post.MontantTTC }}</td>
+          <td  style="text-align:center">
+          <div *ngIf="post.EtatFacture == 0">
+            <span class="label label-inverse-danger">Brouillon </span>
+          </div>
+            <div *ngIf="post.EtatFacture == 1">
+              <span class="label label-inverse-warning">Impayee </span>
+            </div>
+            <div *ngIf="post.EtatFacture == 2">
+              <span class="label label-inverse-info">Commencer</span>
+            </div>
+              <div *ngIf="post.EtatFacture == 3">
+              <span class="label label-inverse-success"> payée </span>
+          </div>
+          </td>
+          <td style="text-align:center"   >
+            <button class="btn  btn-outline-danger " title="delete" (click)="opensm(contentFactureDelete)"><i class="icofont icofont-ui-delete"></i></button>
+            <button class="btn  btn-outline-info" title="Cloturer" (click)="opensm(contentFactureclose)"><i class="icofont icofont-close"></i></button>
+            <button class="btn  btn-outline-primary" title="Telecharger" (click)="pdfFactureClientIntervention(post.id)"><i class="icofont icofont-download"></i></button>
+          </td>
+
+
+          <ng-template #contentFactureDelete let-c="close" let-d="dismiss">
+            <div class="modal-header" style="background-color: #DD4B39">
+              <h4 class="modal-title" style="color: white">Delete Facture</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <dl class="row">
+                <dt class="col-sm-3">Ref Produit</dt>
+                <dd class="col-sm-3">{{ post.RefFacture }}</dd>
+                <dt class="col-sm-3">Nom Produit</dt>
+                <dd class="col-sm-3">{{ post.RefFacture }}</dd>
+                <br><br><br>
+
+                <dt class="col-sm-3 text-truncate">Description Produit</dt>
+                <dd class="col-sm-9">{{ post.RefFacture }}</dd>
+              </dl>
+              <!-- /.panel-body -->
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger btn-square" (click)="delete(post)"  (click)="d('Cross click')"><i class="icofont icofont-warning-alt"></i> Delete</button>
+              <button type="button" class="btn btn-warning btn-square"  (click)="d('Cross click')">Cancel</button>
+            </div>
+          </ng-template>
+
+
+            <ng-template #contentFactureclose let-c="close" let-d="dismiss">
+              <div class="modal-header" style="background-color: #DD4B39">
+                <h4 class="modal-title" style="color: white">Close Facture</h4>
+                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <dl class="row">
+                  <dt class="col-sm-3">Ref Produit</dt>
+                  <dd class="col-sm-3">{{ post.RefFacture }}</dd>
+                  <dt class="col-sm-3">Nom Produit</dt>
+                  <dd class="col-sm-3">{{ post.RefFacture }}</dd>
+                  <br><br><br>
+
+                  <dt class="col-sm-3 text-truncate">Description Produit</dt>
+                  <dd class="col-sm-9">{{ post.RefFacture }}</dd>
+                </dl>
+                <!-- /.panel-body -->
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-square" (click)="close(post)"  (click)="d('Cross click')"><i class="icofont icofont-warning-alt"></i> Close</button>
+                <button type="button" class="btn btn-warning btn-square"  (click)="d('Cross click')">Cancel</button>
+              </div>
+            </ng-template>
+
+
+
+          <ng-template #contentfactureProviderligne let-c="close" let-d="dismiss">
+            <div class="modal-header" style="background-color: #00AEEF">
+              <h4 class="modal-title" style="color: white">Validation Facture {{ post.RefFacture }}</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <dl class="row">
+                <dt class="col-sm-3">Nom Client</dt>
+                <dd class="col-sm-3"> {{ post.name }}</dd>
+                <dt class="col-sm-3">Téléphone</dt>
+                <dd class="col-sm-3"> {{ post.phone_number }}</dd>
+                <br><br>
+                <dt class="col-sm-3">EtatFacture</dt>
+                <dd class="col-sm-3">
+                  <div *ngIf="post.EtatFacture == 0">
+                    <span class="label label-inverse-primary">Brouillon </span>
+                  </div>
+                  <div *ngIf="post.EtatFacture == 1">
+                    <span class="label label-inverse-danger">Impayee </span>
+                  </div>
+                    <div *ngIf="post.EtatFacture == 2">
+                        <span class="label label-inverse-warning">Commencer</span>
+                    </div>
+                    <div *ngIf="post.EtatFacture == 3">
+                        <span class="label label-inverse-warning"> payée </span>
+                    </div>
+                </dd>
+                <dt class="col-sm-3">MontantTTC</dt>
+                <dd class="col-sm-3">
+                 <div *ngIf="post.MontantTTC == NULL">
+                 <span class="label label-inverse-danger">Pas MontantTTC </span>
+                 </div>
+                  {{ post.MontantTTC }}</dd>
+               <br><br>
+
+               <dt class="col-sm-3">Date Facturation</dt>
+               <dd class="col-sm-3">{{ post.DateFacture.slice(0,10) }}</dd>
+               <dt class="col-sm-3">Date échéance</dt>
+               <dd class="col-sm-3">{{ post.DateEcheance.slice(0,10) }}</dd>
+               <br><br>
+
+               <dt class="col-sm-3 text-truncate">Note Public</dt>
+               <dd class="col-sm-9">{{ post.NotePublic }}</dd>
+               <br><br>
+               <dt class="col-sm-3 text-truncate">Note Priver</dt>
+               <dd class="col-sm-9">{{ post.NotePriver }}</dd>
+               <br><br>
+
+
+             </dl>
+             <!-- /.panel-body -->
+            </div>
+
+            <div class="modal-header" style="background-color: #ffffff">
+              <h4 class="modal-title" style="color: black">Validation ligne</h4>
+            </div>
+            <div class="modal-body">
+
+              <div class="card-body table-border-style">
+
+
+                <div _ngcontent-c6="" class="table-responsive">
+                  <table _ngcontent-c6="" class="table table-hover">
+                    <thead _ngcontent-c6="">
+                    <tr _ngcontent-c6="">
+                      <th _ngcontent-c6="" style="width: 20%">Bien Service</th>
+                      <th _ngcontent-c6="" style="width: 7%">Reduction</th>
+                      <th _ngcontent-c6="" style="width:10%">PU HT</th>
+                      <th _ngcontent-c10=""style="width: 7%">Taux TVA</th>
+
+                    </tr>
+                    </thead>
+                    <tbody _ngcontent-c6="">
+
+                    <tr _ngcontent-c6="" *ngFor="let ligne of ligneFactureData">
+                      <th _ngcontent-c6="" scope="row"  (click)="opensm(contentfactureinterventionligne,ligne);" >{{ ligne.NomProduit }}</th>
+                      <th _ngcontent-c6="" (click)="opensm(contentfactureinterventionligne,ligne);" >{{ ligne.Reducation }}</th>
+                      <td _ngcontent-c6="" (click)="opensm(contentfactureinterventionligne);" >{{ ligne.PUHT }}</td>
+                      <td _ngcontent-c6="" (click)="opensm(contentfactureinterventionligne);" >{{ ligne.TVA }} %</td>
+
+                      <ng-template #contentfactureinterventionligne let-c="close" let-d="dismiss">
+
+                        <form method="post" action="" [formGroup]="myformligne" (ngSubmit)="onSubmitLigne(ligne.id,ligne.DetailInterventionID,ligne.FactureID,ligne.StartDateSIM,ligne.EndDateSIM,ligne.PUHT,ligne.TVA,ligne.DescriptionFactureLigne,ligne.PrixParMois);d('Cross click'); ">
+                        <div class="modal-header" style="background-color: #fffbfb">
+                          <h4 class="modal-title" style="color: #010202">{{ ligne.NomProduit }}</h4>
+                          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                            <dl class="row">
+                            <dt class="col-sm-3">Prix Vente</dt>
+                            <dd class="col-sm-3"><input type="number" class="form-control"  formControlName="PUHT" value='{{ ligne.PUHT }}'></dd>
+                            <dt class="col-sm-3">Taux TVA</dt>
+                            <dd class="col-sm-3"> <select _ngcontent-c10="" class="form-control" formControlName="TVA" ngModel >
+                              <option _ngcontent-c10="" value="0">0 %</option>
+                              <option _ngcontent-c10="" value="7">7 %</option>
+                              <option _ngcontent-c10="" value="10">10 %</option>
+                              <option _ngcontent-c10="" value="14">14 %</option>
+                              <option _ngcontent-c10="" value="20">20 %</option>
+                            </select></dd>
+                            <br>
+                              <dl class="row">
+                                <dt class="col-sm-3"> &nbsp;&nbsp;&nbsp;Description:</dt>
+                                <dd class="col-sm-9"> &nbsp;&nbsp;&nbsp;<textarea rows="5" cols="50"class="form-control" id="message-text" formControlName="DescriptionFactureLigne" value='{{ ligne.DescriptionFactureLigne }}'></textarea></dd>
+                              </dl>
+
+                            <dt class="col-sm-6 text-truncate">Reduction</dt>
+                            <dd class="col-sm-6">
+                              <select _ngcontent-c3="" class="form-control form-control-info" formControlName="Reducation" ngModel >
+                              <option _ngcontent-c3="" value="0">0%</option>
+                              <option _ngcontent-c3="" value="7">7%</option>
+                              <option _ngcontent-c3="" value="10">10%</option>
+                              <option _ngcontent-c3="" value="14">14%</option>
+                              <option _ngcontent-c3 ="" value="20">20%</option>
+                              <option _ngcontent-c3 ="" value="100">100%</option>
+                            </select>
+                            </dd>
+                            <dt class="col-sm-6" *ngIf="ligne.category_id == 2">Date Debut</dt>
+                            <dd class="col-sm-6" *ngIf="ligne.category_id == 2"><input type="date"  _ngcontent-c3="" class="form-control form-control-info" formControlName="StartDateSIM" ngModel></dd>
+                            <br>
+                            <dt class="col-sm-6" *ngIf="ligne.category_id == 2">Date Fin</dt>
+                            <dd class="col-sm-6" *ngIf="ligne.category_id == 2"><input type="date" _ngcontent-c3="" class="form-control form-control-info" formControlName="EndDateSIM" ngModel></dd>
+
+                          </dl>
+
+
+
+                          <!-- /.panel-body -->
+
+                        </div>
+                        <div class="modal-footer">
+                          <button type="submit" value="Submit" class="btn btn-success"  [disabled]="myformligne.invalid"><i class="icofont icofont-ui-add"></i>OK</button>
+                          <button type="button" class="btn btn-warning btn-square"  (click)="d('Cross click')">Cancel</button>
+                        </div>
+                        </form>
+                      </ng-template>
+
+                    </tr>
+
+                    </tbody>
+                  </table>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </ng-template>
+
+        </tr>
+        </tbody>
+      </table>
+      <form class="pagination-wrapper">
+        <div class="form-group pages" style="margin-left: 8px">
+          <pagination-controls class="my-pagination" id="pager" (pageChange)="pageChanged($event)"  directionLinks="true"
+                               autoHide="true" previousLabel="Prev" nextLabel="Next" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+                               screenReaderCurrentLabel="You're on page">
+          </pagination-controls>
+        </div>
+        <div class="form-group options pages" style="margin-right: 8px">
+          <div class="input-group input-group-sm">
+            <select class="form-control" name="pageChangedName" [(ngModel)]="pageSize" (ngModelChange)="getFactureProvider()">
+              <option>1</option>
+              <option>5</option>
+              <option>10</option>
+              <option>20</option>
+              <option>50</option>
+              <option>100</option>
+              <option>200</option>
+            </select>
+            <span class="input-group-addon addon-right">Per Page</span>
+          </div>
+        </div>
+      </form>
+    </card>
+  </div>
+</card>
+
+
+<ng2-toasty [position]="position"></ng2-toasty>

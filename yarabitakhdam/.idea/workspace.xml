@@ -1,0 +1,883 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f8aac9b6-ee73-4561-95df-642ea7cde84d" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/dist/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="facture-client-intervention.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/facture-client-intervention/facture-client-intervention.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="231" column="72" selection-start-line="231" selection-start-column="72" selection-end-line="231" selection-end-column="72" />
+              <folding>
+                <element signature="n#ng-template#1;n#tr#0;n#tbody#0;n#table#0;n#card#0;n#div#0;n#card#0;n#!!top" />
+                <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#3;n#ng-template#2;n#tr#0;n#tbody#0;n#table#0;n#card#0;n#div#0;n#card#0;n#!!top" expanded="true" />
+                <element signature="e#13227#13233#0" expanded="true" />
+                <element signature="e#13233#13239#0" expanded="true" />
+                <element signature="e#13257#13263#0" expanded="true" />
+                <element signature="e#13913#13919#0" expanded="true" />
+                <element signature="e#13919#13925#0" expanded="true" />
+                <element signature="e#13925#13931#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="produits.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/BienEtService/produits/produits.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="149" column="32" lean-forward="true" selection-start-line="149" selection-start-column="32" selection-end-line="149" selection-end-column="138" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="facture-client-intervention.component.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/facture-client-intervention/facture-client-intervention.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="265">
+              <caret line="229" column="55" lean-forward="true" selection-start-line="229" selection-start-column="55" selection-end-line="229" selection-end-column="55" />
+              <folding>
+                <element signature="e#0#113#0" expanded="true" />
+                <element signature="n#!!block;n#getFactureClient#0;n#FactureClientInterventionComponent#0" />
+                <element signature="n#!!block;n#close#0;n#FactureClientInterventionComponent#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LigneFacture.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/facture-client-intervention/LigneFacture.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="28" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="facture-client-intervention.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/facture-client-intervention/facture-client-intervention.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="206">
+              <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>openfacture</find>
+      <find>onselectnotchecked</find>
+      <find>ajouter nou</find>
+      <find>ajou</find>
+      <find>contentFacture</find>
+      <find>intervention</find>
+      <find>interve</find>
+      <find>ngi</find>
+      <find>ons</find>
+      <find>onsu</find>
+      <find>7</find>
+      <find>validation</find>
+      <find>onsub</find>
+      <find>cal</find>
+      <find>dele</find>
+      <find>lign</find>
+      <find>onSubmitLigne</find>
+      <find>facture f</find>
+      <find>ligneFactureData</find>
+      <find>factureData</find>
+      <find>deta</find>
+      <find>note public</find>
+      <find>create</find>
+      <find>lie</find>
+      <find>une</find>
+      <find>facture(</find>
+      <find>facture</find>
+      <find>pdf</find>
+      <find>fac</find>
+      <find>ligne</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>ontest</replace>
+      <replace>onsubmit</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>C:\Users\post2\WebstormProjects\yarabitakhdam</dir>
+      <dir>C:\Users\OpenTech\Desktop\yarabitakhdam</dir>
+    </dirStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/app/detail-devis-client/detail-facture-client.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/detail-devis-client/detailsDevisClient.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/detail-devis-client/detail-devis-client.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/detail-devis-client/detail-devis-client.component.html" />
+        <option value="$PROJECT_DIR$/src/app/BienEtService/services/services.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/bordereau-reglement/reglement-client.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/bordereau-reglement/reglement-client.component.html" />
+        <option value="$PROJECT_DIR$/src/app/Facturation-Intervention/FactureInterventionClient.routing.ts" />
+        <option value="$PROJECT_DIR$/src/app/Facturation-Intervention/facture-intervention-client.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/Facturation-Intervention/facture-intervention-client.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/facture-client/facture-client.component.html" />
+        <option value="$PROJECT_DIR$/src/app/BienEtService/produits/produits.component.html" />
+        <option value="$PROJECT_DIR$/src/app/intervenant/intervenant.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/map/google/google.component.html" />
+        <option value="$PROJECT_DIR$/src/app/components/forms/basic-elements/basic-elements.component.html" />
+        <option value="$PROJECT_DIR$/src/app/components/advance/notifications/notifications.component.html" />
+        <option value="$PROJECT_DIR$/src/app/Facturation-Intervention/Factures.ts" />
+        <option value="$PROJECT_DIR$/src/app/Facturation-Intervention/reglement-client.component.html" />
+        <option value="$PROJECT_DIR$/src/app/reglement-client/reglement-client.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/facture-client-intervention/facture-client.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/facture-client-intervention/facture-client.component.html" />
+        <option value="$PROJECT_DIR$/src/app/facture-client-intervention/facture-client.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/Facturation-Intervention/ReglementClient.routing.ts" />
+        <option value="$PROJECT_DIR$/src/app/Facturation-Intervention/reglementClient.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/Facturation-Intervention/reglement-client.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/Facturation-Intervention/reglement-client.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/Facturation-Intervention/InterventionNonFacture.routing.ts" />
+        <option value="$PROJECT_DIR$/src/app/facture-client-intervention/FactureClient.routing.ts" />
+        <option value="$PROJECT_DIR$/src/app/facture-client-intervention/factureClient.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/facture-client-intervention/factureClientIntervention.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/intervenant/intervenant.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/detail-intervention/detail-intervention.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/facture-client/facture-client.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/facture-client-intervention/facture-client-intervention.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/facture-client/facture-client.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/app.routing.ts" />
+        <option value="$PROJECT_DIR$/src/app/detail-facture-intervention-client/detail-facture-client.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/menu-items/menu-items.ts" />
+        <option value="$PROJECT_DIR$/src/app/detail-facture-intervention-client/detail-facture-client.component.html" />
+        <option value="$PROJECT_DIR$/src/app/reglement-client/reglement-client.component.html" />
+        <option value="$PROJECT_DIR$/src/app/BienEtService/produits/produits.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/Facturation-Intervention/intervention-non-facture.component.html" />
+        <option value="$PROJECT_DIR$/src/app/Facturation-Intervention/intervention-non-facture.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/devis-client/Devis.ts" />
+        <option value="$PROJECT_DIR$/src/app/devis-client/devis-client.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/devis-client/devis-client.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/devis-client/devis-client.component.html" />
+        <option value="$PROJECT_DIR$/src/app/facture-client-intervention/LigneFacture.ts" />
+        <option value="$PROJECT_DIR$/src/app/Facturation-Intervention/intervention-non-facture-component.ts" />
+        <option value="$PROJECT_DIR$/src/app/facture-client-intervention/facture-client-intervention.component.html" />
+        <option value="$PROJECT_DIR$/src/app/facture-client-intervention/facture-client-intervention.component.ts" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-7" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="yarabitakhdam" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yarabitakhdam" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yarabitakhdam" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yarabitakhdam" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yarabitakhdam" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yarabitakhdam" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yarabitakhdam" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yarabitakhdam" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="BienEtService" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yarabitakhdam" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yarabitakhdam" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="BienEtService" type="462c0819:PsiDirectoryNode" />
+              <item name="produits" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yarabitakhdam" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yarabitakhdam" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="facture-client-intervention" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yarabitakhdam" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yarabitakhdam" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="reglement-client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yarabitakhdam" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yarabitakhdam" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yarabitakhdam" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yarabitakhdam" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="menu-items" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../myapp" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="C:\Users\Achraf Oulahiane\WebstormProjects\yarabitakhdam\node_modules\tslint" />
+    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+    <property name="ts.external.directory.path" value="C:\Users\OpenTech\Desktop\yarabitakhdam\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\OpenTech\Desktop\yarabitakhdam\src\app" />
+      <recent name="C:\Users\OpenTech\Desktop\yarabitakhdam\src\app\Facturation-Intervention" />
+      <recent name="C:\Users\OpenTech\Desktop\yarabitakhdam\src\assets\images" />
+      <recent name="C:\Users\OpenTech\Desktop\yarabitakhdam\src\app\reglement-provider" />
+      <recent name="C:\Users\OpenTech\Desktop\yarabitakhdam\src\app\detail-facture-client" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\OpenTech\Desktop\yarabitakhdam\src\app" />
+      <recent name="C:\Users\OpenTech\Desktop\yarabitakhdam\src\app\BienEtService" />
+      <recent name="C:\Users\OpenTech\Desktop\yarabitakhdam\src\app\detail-facture-provider" />
+      <recent name="C:\Users\OpenTech\Desktop\yarabitakhdam\src\app\facture-provider" />
+      <recent name="C:\Users\OpenTech\Desktop\yarabitakhdam\src\app\produits" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f8aac9b6-ee73-4561-95df-642ea7cde84d" name="Default" comment="" />
+      <created>1519587093399</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1519587093399</updated>
+      <workItem from="1519587095058" duration="6294000" />
+      <workItem from="1519646232081" duration="2260000" />
+      <workItem from="1519725473387" duration="5750000" />
+      <workItem from="1519808830344" duration="1113000" />
+      <workItem from="1520003579450" duration="598000" />
+      <workItem from="1520241726004" duration="712000" />
+      <workItem from="1520419647461" duration="4284000" />
+      <workItem from="1520956703822" duration="106000" />
+      <workItem from="1521547530038" duration="1840000" />
+      <workItem from="1522080118425" duration="4715000" />
+      <workItem from="1522313607593" duration="1233000" />
+      <workItem from="1522425932308" duration="611000" />
+      <workItem from="1522862340312" duration="601000" />
+      <workItem from="1522914288480" duration="596000" />
+      <workItem from="1523022454355" duration="1202000" />
+      <workItem from="1523028406788" duration="1029000" />
+      <workItem from="1524751218879" duration="7445000" />
+      <workItem from="1529309965126" duration="17495000" />
+      <workItem from="1529492609797" duration="767000" />
+      <workItem from="1529579202602" duration="1235000" />
+      <workItem from="1529602272296" duration="891000" />
+      <workItem from="1529655607451" duration="47000" />
+      <workItem from="1529659273398" duration="3087000" />
+      <workItem from="1529663111243" duration="7172000" />
+      <workItem from="1530034928987" duration="589000" />
+      <workItem from="1530035799754" duration="467000" />
+      <workItem from="1530085076696" duration="27981000" />
+      <workItem from="1530171837475" duration="738000" />
+      <workItem from="1530172856831" duration="30176000" />
+      <workItem from="1530260960942" duration="52000" />
+      <workItem from="1530517608596" duration="20672000" />
+      <workItem from="1530540822327" duration="12125000" />
+      <workItem from="1530605321761" duration="27754000" />
+      <workItem from="1530690958777" duration="30047000" />
+      <workItem from="1530726807830" duration="1659000" />
+      <workItem from="1530782756803" duration="1375000" />
+      <workItem from="1530894274438" duration="662000" />
+      <workItem from="1531122206150" duration="29127000" />
+      <workItem from="1531209677350" duration="1102000" />
+      <workItem from="1531211457734" duration="26164000" />
+      <workItem from="1531247282413" duration="652000" />
+      <workItem from="1531297075093" duration="9901000" />
+      <workItem from="1531330791771" duration="233000" />
+      <workItem from="1531382185389" duration="22795000" />
+      <workItem from="1531470052593" duration="25599000" />
+      <workItem from="1531727218132" duration="22134000" />
+      <workItem from="1531813904559" duration="27289000" />
+      <workItem from="1531901051537" duration="19706000" />
+      <workItem from="1531987936894" duration="572000" />
+      <workItem from="1531988605796" duration="18003000" />
+      <workItem from="1532074675185" duration="5955000" />
+      <workItem from="1532083117382" duration="15727000" />
+      <workItem from="1532333533149" duration="13110000" />
+      <workItem from="1532353750777" duration="10684000" />
+      <workItem from="1532419015804" duration="23220000" />
+      <workItem from="1532507910840" duration="16023000" />
+      <workItem from="1532591448567" duration="2891000" />
+      <workItem from="1532597621909" duration="32500000" />
+      <workItem from="1533023481569" duration="58085000" />
+      <workItem from="1533305279676" duration="2393000" />
+      <workItem from="1533541771097" duration="1460000" />
+      <workItem from="1533544622170" duration="9647000" />
+      <workItem from="1533571828948" duration="5914000" />
+      <workItem from="1533715787412" duration="6626000" />
+      <workItem from="1533802478176" duration="17577000" />
+      <workItem from="1533889729539" duration="4294000" />
+      <workItem from="1533895787104" duration="15573000" />
+      <workItem from="1534146534384" duration="34268000" />
+      <workItem from="1534407716891" duration="17914000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="722486000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32900432" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32941177" />
+      <window_info id="npm" order="3" sideWeight="0.50161815" weight="0.25746268" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.27597404" />
+      <window_info anchor="bottom" id="TypeScript" order="7" weight="0.32900432" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49838188" visible="true" weight="0.19402985" />
+      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="5" weight="0.32995737" />
+      <window_info id="Structure" order="1" sideWeight="0.5011062" side_tool="true" weight="0.2249467" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" id="Jenkins" order="3" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Mongo Explorer" order="4" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32792208" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/app/shared/shared.module.js" />
+        <option value="$PROJECT_DIR$/src/app/shared/card/card.component.js" />
+        <option value="$PROJECT_DIR$/src/app/shared/card/card-refresh.directive.js" />
+        <option value="$PROJECT_DIR$/src/app/shared/card/card-animation.js" />
+        <option value="$PROJECT_DIR$/src/app/shared/card/card-toggle.directive.js" />
+        <option value="$PROJECT_DIR$/src/app/shared/elements/parent-remove.directive.js" />
+        <option value="$PROJECT_DIR$/src/app/shared/accordion/accordionlink.directive.js" />
+        <option value="$PROJECT_DIR$/src/app/shared/accordion/accordionanchor.directive.js" />
+        <option value="$PROJECT_DIR$/src/app/shared/accordion/accordion.directive.js" />
+        <option value="$PROJECT_DIR$/src/app/shared/accordion/index.js" />
+        <option value="$PROJECT_DIR$/src/app/shared/fullscreen/toggle-fullscreen.directive.js" />
+        <option value="$PROJECT_DIR$/src/app/shared/menu-items/menu-items.js" />
+        <option value="$PROJECT_DIR$/node_modules/karma/config.tpl.js" />
+      </list>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/widgets/main/main.module.ts</url>
+          <line>3</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/detail-facture-provider/detailsFactureProvider.module.ts</url>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/reglement-client/reglement-client.service.ts</url>
+          <line>17</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="10" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/app/components/forms/forms.component.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/forms/basic-elements/basic-elements.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-589">
+          <caret line="365" column="5" selection-start-line="365" selection-start-column="5" selection-end-line="365" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/advance/notifications/notifications.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="102" column="75" selection-start-line="102" selection-start-column="75" selection-end-line="102" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/facture-client/factureClient.module.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Facturation-Intervention/Factures.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/facture-client/Factures.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/shared.module.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/intervenant/intervenant.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="409" column="70" lean-forward="true" selection-start-line="409" selection-start-column="70" selection-end-line="409" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/intervenant/intervenant.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="431" column="44" lean-forward="true" selection-start-line="431" selection-start-column="44" selection-end-line="431" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/intervenant/intervenant.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="20" column="35" selection-start-line="18" selection-start-column="69" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/facture-client-intervention/Factures.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Facturation-Intervention/interventionNonFacture.routing.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Facturation-Intervention/intervention-non-facture.component.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@angular/router/src/config.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="345" column="4" selection-start-line="345" selection-start-column="4" selection-end-line="345" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Facturation-Intervention/interventionNonFacture.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="50" lean-forward="true" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/facture-client-intervention/FactureClientIntervention.routing.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="79" selection-start-column="79" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/facture-client-intervention/factureClientIntervention.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="25" lean-forward="true" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/detail-intervention/pagination/pagination.component.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/intervenant/pagination/pagination.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/devis-client/devisClient.module.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/intervenant/intervenant.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/detail-intervention/detail-intervention.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="46" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/detail-facture-intervention-client/ReglementClient.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.routing.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="42" column="48" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/detail-facture-intervention-client/detail-facture-client.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/menu-items/menu-items.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="143" column="31" selection-start-line="143" selection-start-column="31" selection-end-line="143" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/detail-facture-intervention-client/detail-facture-client.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="90" column="49" selection-start-line="90" selection-start-column="49" selection-end-line="90" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/detail-facture-intervention-client/detail-facture-client.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2516">
+          <caret line="148" column="74" selection-start-line="148" selection-start-column="74" selection-end-line="148" selection-end-column="74" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#2;n#ng-template#0;n#ngb-tab#0;n#ngb-tabset#0;n#div#0;n#card#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#1;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#2;n#ng-template#0;n#ngb-tab#0;n#ngb-tabset#0;n#div#0;n#card#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#2;n#ng-template#0;n#ngb-tab#0;n#ngb-tabset#0;n#div#0;n#card#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#2;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#2;n#ng-template#0;n#ngb-tab#0;n#ngb-tabset#0;n#div#0;n#card#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/bordereau-reglement/reglement-client.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/bordereau-reglement/reglement-client.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="84" column="42" selection-start-line="84" selection-start-column="42" selection-end-line="84" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/reglement-client/reglement-client.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/reglement-client/reglement-client.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="52" column="52" selection-start-line="52" selection-start-column="52" selection-end-line="52" selection-end-column="52" />
+          <folding>
+            <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#card#0;n#div#0;n#card#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/BienEtService/produits/produits.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="210" column="39" lean-forward="true" selection-start-line="210" selection-start-column="39" selection-end-line="210" selection-end-column="70" />
+          <folding>
+            <element signature="e#0#113#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Facturation-Intervention/intervention-non-facture.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="169" column="67" lean-forward="true" selection-start-line="169" selection-start-column="67" selection-end-line="169" selection-end-column="80" />
+          <folding>
+            <element signature="e#1771#1777#0" expanded="true" />
+            <element signature="e#1777#1783#0" expanded="true" />
+            <element signature="e#1783#1789#0" expanded="true" />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#app-details#0;n#div#0;n#div#0;n#div#0;n#div#0;n#card#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#app-details#0;n#div#0;n#div#0;n#div#0;n#div#0;n#card#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#app-details#0;n#div#0;n#div#0;n#div#0;n#div#0;n#card#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#app-details#0;n#div#0;n#div#0;n#div#0;n#div#0;n#card#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#app-details#0;n#div#0;n#div#0;n#div#0;n#div#0;n#card#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#app-details#0;n#div#0;n#div#0;n#div#0;n#div#0;n#card#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/devis-client/Devis.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/devis-client/devis-client.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-697">
+          <caret line="23" lean-forward="true" selection-start-line="22" selection-start-column="37" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/devis-client/devis-client.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2059">
+          <caret line="145" column="84" selection-start-line="145" selection-start-column="84" selection-end-line="145" selection-end-column="84" />
+          <folding>
+            <element signature="e#0#113#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/devis-client/devis-client.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="54" column="80" lean-forward="true" selection-start-line="54" selection-start-column="80" selection-end-line="54" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Facturation-Intervention/intervention-non-facture.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="54" column="69" selection-start-line="54" selection-start-column="57" selection-end-line="54" selection-end-column="69" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/facture-client/facture-client.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="14" column="67" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/facture-client/facture-client.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="321" column="47" selection-start-line="321" selection-start-column="47" selection-end-line="321" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#113#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Facturation-Intervention/intervention-non-facture-component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="267" column="83" selection-start-line="267" selection-start-column="83" selection-end-line="267" selection-end-column="83" />
+          <folding>
+            <element signature="e#0#113#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/facture-client/facture-client.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="357" column="69" lean-forward="true" selection-start-line="357" selection-start-column="69" selection-end-line="357" selection-end-column="96" />
+          <folding>
+            <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#card#0;n#div#0;n#card#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/facture-client-intervention/facture-client-intervention.component.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/facture-client-intervention/facture-client-intervention.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/facture-client-intervention/LigneFacture.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="28" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/BienEtService/produits/produits.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="149" column="32" lean-forward="true" selection-start-line="149" selection-start-column="32" selection-end-line="149" selection-end-column="138" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/facture-client-intervention/facture-client-intervention.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="231" column="72" selection-start-line="231" selection-start-column="72" selection-end-line="231" selection-end-column="72" />
+          <folding>
+            <element signature="n#ng-template#1;n#tr#0;n#tbody#0;n#table#0;n#card#0;n#div#0;n#card#0;n#!!top" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#3;n#ng-template#2;n#tr#0;n#tbody#0;n#table#0;n#card#0;n#div#0;n#card#0;n#!!top" expanded="true" />
+            <element signature="e#13227#13233#0" expanded="true" />
+            <element signature="e#13233#13239#0" expanded="true" />
+            <element signature="e#13257#13263#0" expanded="true" />
+            <element signature="e#13913#13919#0" expanded="true" />
+            <element signature="e#13919#13925#0" expanded="true" />
+            <element signature="e#13925#13931#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/facture-client-intervention/facture-client-intervention.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="229" column="55" lean-forward="true" selection-start-line="229" selection-start-column="55" selection-end-line="229" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#113#0" expanded="true" />
+            <element signature="n#!!block;n#getFactureClient#0;n#FactureClientInterventionComponent#0" />
+            <element signature="n#!!block;n#close#0;n#FactureClientInterventionComponent#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

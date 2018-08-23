@@ -1,0 +1,324 @@
+<card [title]="'Devis Clients'" [classHeader]="false" [blockClass]="'table-border-style'"
+      xmlns="http://www.w3.org/1999/html">
+
+  <div _ngcontent-c6="" class="table-responsive">
+    <card cardTitle="Data Table">
+      <table _ngcontent-c6=""  class="table table-striped  table-responsive full-data-table table-hover" >
+        <thead _ngcontent-c6="">
+        <tr class='table-filters'>
+          <th class="text-center priority-1" style=" width: 1%;"> <input _ngcontent-c6="" class="form-control form-control-info" (click)="resizepage()"  placeholder="Réf." type="text"> </th>
+          <th class="text-center priority-7" style="width: 1%;">  <input _ngcontent-c6="" class="form-control form-control-info" (click)="resizepage()"  placeholder="Client" type="text"></th>
+          <th class="text-center priority-7" style="width: 8%;">  <input _ngcontent-c6="" class="form-control form-control-info" (click)="resizepage()"  placeholder="Téléphone" type="text"></th>
+          <th class="text-center priority-9" style="width: 4%;">  <input _ngcontent-c6="" class="form-control form-control-info"(click)="resizepage()" placeholder="Date Devis" type="text"></th>
+          <th class="text-center priority-3" style="width: 4%;">  <input _ngcontent-c6="" class="form-control form-control-info" (click)="resizepage()"  placeholder="Montant TTC" type="text"></th>
+          <th class="text-center priority-3" style="width: 4%;">
+            <select _ngcontent-c6="" class="form-control form-control-info" (click)="resizepage()">
+              <option value="">Select État</option>
+              <option value="Non Facturé" _ngcontent-c10="">Non Facturé</option>
+              <option value="Facturé" _ngcontent-c10="">Facturé</option>
+            </select></th>
+          <th class="text-center priority-3" style="width: 4%;"> <button class="btn  btn-outline-info" (click)="open(content)"><i class="icofont icofont-ui-add"></i>Ajouter Devis</button>  </th>
+        <tr>
+          <th class="text-center priority-1" style=" width: 1%;"> Réf.</th>
+          <th class="text-center priority-7" style="width: 1%;"> Client</th>
+          <th class="text-center priority-7" style="width: 8%;">Téléphone</th>
+          <th class="text-center priority-9" style="width: 4%;"> Date Devis </th>
+          <th class="text-center priority-3" style="width: 4%;">Montant TTC </th>
+          <th class="text-center priority-3" style="width: 4%;"> État </th>
+          <th class="text-center priority-3" style="width: 4%;"> Action  </th>
+        </tr>
+        </thead>
+        <tbody _ngcontent-c6="">
+        <tr *ngFor="let post of devisData | paginate: { id: 'pager', itemsPerPage: pageSize, currentPage: pageNumber};let index = index" class='table-data'>
+
+          <td style="text-align:center"><a [routerLink]="['../DetailDevisClient/'+post.id ]"  >Rf.{{ post.id }}</a></td>
+          <td (click)="openDevis(contentdevisClientligne,post.id);" style="text-align:center">{{ post.name }}</td>
+          <td (click)="openDevis(contentdevisClientligne,post.id);" style="text-align:center">{{ post.phone_number }}</td>
+          <td (click)="openDevis(contentdevisClientligne,post.id);" style="text-align:center">{{ post.DateFacture.slice(0,10)}}</td>
+          <td (click)="openDevis(contentdevisClientligne,post.id);" style="text-align:center">
+            <div *ngIf="post.MontantTTC == NULL">
+            <span class="label label-inverse-danger">Pas MontantTTC </span>
+            </div>
+            {{ post.MontantTTC }}</td>
+          <td  style="text-align:center">
+          <div *ngIf="post.EtatFacture == 0">
+            <span class="label label-inverse-danger">Non Facturé </span>
+          </div>
+            <div *ngIf="post.EtatFacture == 1">
+              <span class="label label-inverse-success">Facturé </span>
+            </div>
+
+          </td>
+          <td style="text-align:center"   >
+
+            <button class="btn btn-success btn-outline-success " title="edit" (click)="open(contentDevisUpdate)"><i class="icofont icofont-edit"></i></button>
+            <button class="btn btn-danger btn-outline-danger " title="delete" (click)="opensm(contentDevisDelete)"><i class="icofont icofont-ui-delete"></i></button>
+            <button *ngIf="post.EtatFacture == 0 && post.MontantTTC != NULL" class="btn btn-info btn-outline-info" title="Facturé" (click)="opensm(contentDevisfacture)"><i class="icofont icofont-tick-boxed"></i></button>
+
+          <ng-template #contentDevisDelete let-c="close" let-d="dismiss">
+            <div class="modal-header" style="background-color: #DD4B39">
+              <h4 class="modal-title" style="color: white">Delete Devis</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <dl class="row">
+                <dt class="col-sm-3">Ref Produit</dt>
+                <dd class="col-sm-3">{{ post.id }}</dd>
+
+              </dl>
+              <!-- /.panel-body -->
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger btn-square" (click)="delete(post)"  (click)="d('Cross click')"><i class="icofont icofont-warning-alt"></i> Delete</button>
+              <button type="button" class="btn btn-warning btn-square"  (click)="d('Cross click')">Cancel</button>
+            </div>
+          </ng-template>
+
+
+            <ng-template #contentDevisfacture let-c="close" let-d="dismiss">
+              <div class="modal-header" style="background-color: #03b2dd">
+                <h4 class="modal-title" style="color: white">Facturé Devis</h4>
+                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-info btn-square" (click)="facture(post)"  (click)="d('Cross click')"><i class="icofont icofont-warning-alt"></i> Facturé</button>
+                <button type="button" class="btn btn-danger btn-square"  (click)="d('Cross click')">Cancel</button>
+              </div>
+            </ng-template>
+
+
+
+
+
+
+            <ng-template #contentDevisUpdate let-c="close" let-d="dismiss">
+            <div class="modal-header" style="background-color: #4cd787">
+              <h4 class="modal-title" id="modal-basic-title" style="color: white">Modification Devis</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+              <form method="post" action="" [formGroup]="myformUpdate" (ngSubmit)="onUpdate(post.id,post.MontantHT,post.MontantTVA,post.MontantTTC,post.NotePublic,post.NotePriver,post.EtatFacture ,post.DateFacture,post.MontantReglement,post.ClientID); d('Cross click');">
+
+                <label class="col-form-label">Date Devis</label>
+                <input type="date" class="form-control" formControlName="DateFacture" value='{{ post.DateFacture }}' ngModel >
+
+                <label  class="col-form-label">Note (Priver)</label>
+                <textarea class="form-control" id="NotePublics"  formControlName="NotePublic" ngModel value='{{ post.NotePublic }}' ></textarea>
+
+                <label  class="col-form-label">Note (Priver)</label>
+                <textarea class="form-control" id="NotePrivers"  formControlName="NotePriver" ngModel  value='{{ post.NotePriver }}'></textarea>
+
+                <div class="modal-footer">
+                  <button class="btn btn-danger" (click)="c('Close click')">Cancel</button>
+                  <button type="submit" value="Submit" class="btn btn-success"><i class="icofont icofont-edit"></i>Update Devis</button>
+
+                </div>
+
+              </form>
+            </div>
+          </ng-template>
+
+
+
+
+          <ng-template #contentdevisClientligne let-c="close" let-d="dismiss">
+            <div class="modal-header" style="background-color: #00AEEF">
+              <h4 class="modal-title" style="color: white">Validation Devis {{ post.RefFacture }}</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <dl class="row">
+                <dt class="col-sm-3">Nom Client</dt>
+                <dd class="col-sm-3"> {{ post.name }}</dd>
+                <dt class="col-sm-3">Téléphone</dt>
+                <dd class="col-sm-3"> {{ post.phone_number }}</dd>
+                <br><br>
+                <dt class="col-sm-3">EtatDevis</dt>
+                <dd class="col-sm-3">
+                  <div *ngIf="post.EtatFacture == 0">
+                    <span class="label label-inverse-danger">Non Facturé </span>
+                  </div>
+                  <div *ngIf="post.EtatFacture == 1">
+                    <span class="label label-inverse-success">Facturé </span>
+                  </div>
+                </dd>
+                <dt class="col-sm-3">MontantTTC</dt>
+                <dd class="col-sm-3">
+                 <div *ngIf="post.MontantTTC == NULL">
+                 <span class="label label-inverse-danger">Pas MontantTTC </span>
+                 </div>
+                  {{ post.MontantTTC }}</dd>
+               <br><br>
+
+               <dt class="col-sm-3">Date Devis</dt>
+               <dd class="col-sm-9">{{ post.DateFacture.slice(0,10) }}</dd>
+
+               <br><br>
+
+               <dt class="col-sm-3 text-truncate">Note Public</dt>
+               <dd class="col-sm-9">{{ post.NotePublic }}</dd>
+               <br><br>
+               <dt class="col-sm-3 text-truncate">Note Priver</dt>
+               <dd class="col-sm-9">{{ post.NotePriver }}</dd>
+               <br><br>
+
+
+             </dl>
+             <!-- /.panel-body -->
+            </div>
+            <form method="post" action="" [formGroup]="myformligne" (ngSubmit)="onSubmitLigne(post.id)">
+            <div class="modal-header" style="background-color: #ffffff">
+              <h4 class="modal-title" style="color: black">Ajouter Nouvelle ligne</h4>
+            </div>
+            <div class="modal-body">
+
+              <div class="card-body table-border-style">
+
+
+                <div _ngcontent-c6="" class="table-responsive">
+                  <table _ngcontent-c6="" class="table table-hover">
+                    <thead _ngcontent-c6="">
+                    <tr _ngcontent-c6="">
+                      <th _ngcontent-c6="" style="width: 20%">Bien Service</th>
+                      <th _ngcontent-c6="" style="width: 15%">PU HT</th>
+                      <th _ngcontent-c6="" style="width: 15%">Qte</th>
+                      <th _ngcontent-c10=""style="width: 7%">Taux TVA</th>
+                      <th _ngcontent-c6="" style="width: 15%">Réduction</th>
+                      <th _ngcontent-c3="" style="width: 3%">Action</th>
+
+                    </tr>
+                    </thead>
+                    <tbody _ngcontent-c6="">
+                    <tr _ngcontent-c6="" *ngFor="let ligne of ligneDevisData">
+                      <th _ngcontent-c6="" scope="row" >{{ ligne.NomProduit }}</th>
+                      <td _ngcontent-c6="" >{{ ligne.PUHT }}</td>
+                      <td _ngcontent-c6="">{{ ligne.Qte }}</td>
+                      <td _ngcontent-c6="">{{ ligne.TVA }} %</td>
+                      <td _ngcontent-c6="">{{ ligne.Reducation }} %</td>
+                      <td _ngcontent-c3="" class="action-icon">
+                        <a _ngcontent-c3="" (click)="deleteLigne(ligne)" class="crm-action-delete text-muted text-danger" href="javascript:;"><i _ngcontent-c11="" class="icofont icofont-delete-alt"></i></a>
+                      </td>
+                    </tr>
+
+
+                    <tr _ngcontent-c6="" *ngIf="post.EtatFacture != 1">
+                      <th _ngcontent-c6="" scope="row">
+                        <select _ngcontent-c10="" class="form-control form-control-info" formControlName="ProduitsID" ngModel  >
+                        <option _ngcontent-c6="" *ngFor="let produit of allProduit" [value]=produit.id >{{ produit.NomProduit }}</option>
+                      </select>
+                      </th>
+                      <td _ngcontent-c6=""><input _ngcontent-c6="" class="form-control form-control-info" formControlName="PUHT" required   placeholder="Prix UHT" type="number"></td>
+                      <td _ngcontent-c6=""><input _ngcontent-c6="" class="form-control form-control-info" formControlName="Qte" required   placeholder="Qté" type="number"></td>
+                      <td _ngcontent-c6="">
+                      <select _ngcontent-c3="" class="form-control form-control-info" formControlName="TVA" >
+                        <option _ngcontent-c3="" value="0" >0%</option>
+                        <option _ngcontent-c3="" value="7">7%</option>
+                        <option _ngcontent-c3="" value="10">10%</option>
+                        <option _ngcontent-c3="" value="14">14%</option>
+                        <option _ngcontent-c3 ="" value="20">20%</option>
+                      </select>
+                    </td>
+                      <td _ngcontent-c6="">
+                        <select _ngcontent-c3="" class="form-control form-control-info" formControlName="Reducation" >
+                          <option _ngcontent-c3="" value="0">0%</option>
+                        <option _ngcontent-c3="" value="7">7%</option>
+                        <option _ngcontent-c3="" value="10">10%</option>
+                        <option _ngcontent-c3="" value="14">14%</option>
+                        <option _ngcontent-c3 ="" value="20">20%</option>
+                      </select>
+                    </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
+                    <button type="submit" value="Submit" class="btn btn-success" [disabled]="myformligne.invalid"  *ngIf="post.EtatFacture == 0" ><i class="icofont icofont-ui-add"></i>VALIDE</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </form>
+          </ng-template>
+
+        </tr>
+        </tbody>
+      </table>
+      <form class="pagination-wrapper">
+        <div class="form-group pages" style="margin-left: 8px">
+          <pagination-controls class="my-pagination" id="pager" (pageChange)="pageChanged($event)"  directionLinks="true"
+                               autoHide="true" previousLabel="Prev" nextLabel="Next" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+                               screenReaderCurrentLabel="You're on page">
+          </pagination-controls>
+        </div>
+        <div class="form-group options pages" style="margin-right: 8px">
+          <div class="input-group input-group-sm">
+            <select class="form-control" name="pageChangedName" [(ngModel)]="pageSize" (ngModelChange)="getFactureProvider()">
+              <option>1</option>
+              <option>5</option>
+              <option>10</option>
+              <option>20</option>
+              <option>50</option>
+              <option>100</option>
+              <option>200</option>
+            </select>
+            <span class="input-group-addon addon-right">Per Page</span>
+          </div>
+        </div>
+      </form>
+    </card>
+  </div>
+</card>
+
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header" style="background-color: #4cd787">
+    <h4 class="modal-title" id="modal-basic-title" style="color: white">Creation Devis</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form method="post" action="" [formGroup]="myform" (ngSubmit)="onSubmit(); d('Cross click');" >
+      <div class="form-group">
+
+        <label class="col-form-label">Client </label>
+        <select _ngcontent-c10="" class="form-control" formControlName="ClientID" ngModel  >
+          <option _ngcontent-c10="" *ngFor="let client of allClient" [value]=client.id >{{ client.name }}</option>
+        </select>
+
+        <label class="col-form-label">Date Devis</label>
+        <input type="date" class="form-control" formControlName="DateFacture" ngModel required>
+
+        <label  class="col-form-label">Note (publique)</label>
+        <textarea class="form-control" id="NotePublic"  formControlName="NotePublic" ngModel  ></textarea>
+
+        <label  class="col-form-label">Note (Priver)</label>
+        <textarea class="form-control" id="NotePriver"  formControlName="NotePriver" ngModel  ></textarea>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-danger" (click)="c('Close click')">Cancel</button>
+        <button type="submit" value="Submit" class="btn btn-success" [disabled]="myform.invalid"><i class="icofont icofont-ui-add"></i>Créer brouillon</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+
+
+
+
+<ng2-toasty [position]="position"></ng2-toasty>

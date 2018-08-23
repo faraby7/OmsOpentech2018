@@ -1,0 +1,173 @@
+<card [title]="'Reglement Client'" [classHeader]="false" [blockClass]="'table-border-style'"
+      xmlns="http://www.w3.org/1999/html">
+
+
+  <div class="pcoded-inner-content">
+    <div class="main-body">
+      <div class="page-wrapper">
+        <div class="page-body">
+          <app-details _nghost-c21="" class=""><div _ngcontent-c21="" class="row">
+
+            <div _ngcontent-c21="" class="col-xl-4 col-md-12 col-sm-12 push-xl-8 task-detail-right">
+
+
+                <div _ngcontent-c21="" class="card-header">
+                  <h5 _ngcontent-c21="" class="card-header-text"><i _ngcontent-c21="" class="icofont icofont-ui-note m-r-10"></i> Filtrage Reglement</h5>
+                </div>
+                <div _ngcontent-c21="" class="card-body task-details">
+                  <table _ngcontent-c21="" class="table table-border">
+                    <tbody>
+
+                    <form method="post" action="" [formGroup]="myformSearch" (ngSubmit)="search()">
+                      <tr _ngcontent-c21="">
+                        <td _ngcontent-c21=""><i _ngcontent-c21="" class="icofont icofont-meeting-add"></i>Date Bordereau:</td>
+                        <td _ngcontent-c21="" class="text-right">
+                          <div _ngcontent-c35="" class="input-group">
+                            <input formControlName="DateEcheance" type="date" class="form-control-info">
+                            <div _ngcontent-c35="" class="input-group-addon bg-default">
+                              <span _ngcontent-c35="" class="icofont icofont-ui-calendar"></span>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr _ngcontent-c21="">
+                        <td _ngcontent-c21=""><i _ngcontent-c21="" class="icofont icofont-id-card"></i> Type Cheque:</td>
+                        <td _ngcontent-c21="" class="text-right">
+
+                          <select class="form-control form-control-info" formControlName="ModePaiement">
+                            <option value="">Select Type</option>
+                            <option value="3">Traite</option>
+                            <option value="0">Cheque</option>
+                          </select>
+                        </td>
+                    </tr>
+<!--
+                    <tr _ngcontent-c21="">
+                                          <td _ngcontent-c21=""><i _ngcontent-c21="" class="icofont icofont-washing-machine"></i> Compte Bancaire:</td>
+                                          <td _ngcontent-c21="" class="text-right">
+
+                                            <select class="form-control form-control-info" name="select">
+                                              <option value="opt1">Select compte</option>
+                                              <option value="opt2">OpenTech</option>
+                                              <option value="opt3">OpenTech2</option>
+                                            </select>
+
+                                          </td>
+                       </tr>
+-->
+                    <tr _ngcontent-c21="">
+                      <td _ngcontent-c21=""></td>
+                      <td _ngcontent-c21="" class="text-right"><button _ngcontent-c4="" type="submit"  (click)="searchpage()"  class="btn  btn-outline-info"><i _ngcontent-c4="" class="icofont icofont-document-search "></i>Filter</button></td>
+                    </tr>
+                    </form>
+                    <br><br><br><br>
+                    <tr _ngcontent-c21="">
+                      <td _ngcontent-c21="" style="color: red;">Resultat</td>
+                      <td _ngcontent-c21="" class="text-right"></td>
+                    </tr>
+                    <tr _ngcontent-c21="">
+                      <td _ngcontent-c21=""><i _ngcontent-c21="" class="icofont icofont-spinner-alt-3"></i> Nombre De Reglement:</td>
+                      <td _ngcontent-c21="" class="text-right">{{ this.pageSize }}</td>
+                    </tr>
+
+<!--
+                    <tr _ngcontent-c21="">
+                      <td _ngcontent-c21=""><i _ngcontent-c21="" class="icofont icofont-money-bag"></i> Montant Total:</td>
+                      <td _ngcontent-c21="" class="text-right" *ngFor="let post of reglementData">
+                        {{ post.Montant}}
+                      </td>
+                    </tr>
+
+-->
+                    <br><br>
+
+                    <li _ngcontent-c21="" class="media d-flex m-b-10">
+                      <div _ngcontent-c21="" class="m-r-20 v-middle">
+                        <i _ngcontent-c21="" class="icofont icofont-file-powerpoint f-28 text-muted"></i>
+                      </div>
+                      <div _ngcontent-c21="" class="media-body">
+                        <a _ngcontent-c21="" class="m-b-5 d-block" href="javascript:;">Bordereau.pdf</a>
+                        <div _ngcontent-c21="" class="text-muted">
+                          <span _ngcontent-c21="">Size: 0.11Mb</span>
+                          <span _ngcontent-c21=""> by <a _ngcontent-c21="" href="">OpenTech</a></span>
+                        </div>
+                      </div>
+                      <div _ngcontent-c21="" class="f-right v-middle text-muted">
+                        <i _ngcontent-c21="" class="icofont icofont-download-alt f-18"></i>
+                      </div>
+                    </li>
+                    </tbody>
+                  </table>
+                </div>
+
+
+            </div>
+
+
+            <div _ngcontent-c21="" class="col-xl-8 col-lg-12 pull-xl-4">
+              <div _ngcontent-c21="" class="card">
+                <div _ngcontent-c21="" class="card-header">
+                  <h5 _ngcontent-c21=""><i _ngcontent-c21="" class="icofont icofont-document-search m-r-5"></i> La Liste Bordereau</h5>
+
+                </div>
+                <div _ngcontent-c21="" class="card-body">
+                  <div _ngcontent-c21="" class="">
+
+                    <div _ngcontent-c21="" class="m-b-20">
+                      <div _ngcontent-c21="" class="table-responsive m-t-20">
+                        <table _ngcontent-c21="" class="table m-b-0 f-14 b-solid requid-table ">
+                          <thead _ngcontent-c21="">
+                          <tr _ngcontent-c21="" class="text-uppercase table-info">
+                            <th class="text-center priority-1" style=" width: 1%;"> Réf.</th>
+                            <th class="text-center priority-3" style="width: 4%;">Date Echeance</th>
+                            <th class="text-center priority-7" style="width: 8%;">Mode Paiement</th>
+                            <th class="text-center priority-9" style="width: 4%;">Numéro chèque</th>
+                            <th class="text-center priority-2" style="width: 4%;">Banque</th>
+                            <th class="text-center priority-3" style="width: 4%;"> Montant Reglement</th>
+                          </tr>
+                          </thead>
+                          <tbody _ngcontent-c6="">
+                          <tr *ngFor="let post of reglementData | paginate: { id: 'pager', itemsPerPage: pageSize, currentPage: pageNumber};let index = index;" class='table-data' [routerLink]="['../DetailFactureClient/'+post.FactureID ]">
+
+                            <td style="text-align:center">Rg.{{ post.id }}</td>
+                            <td  style="text-align:center">{{ post.DateEcheance.slice(0,10)}}</td>
+                            <td  style="text-align:center">
+                              <div *ngIf="post.ModePaiement == 0">
+                                <span class="badge badge-pill badge-primary">Cheque </span>
+                              </div>
+                              <div *ngIf="post.ModePaiement== 1">
+                                <span class="badge badge-pill badge-warning">Espèce </span>
+                              </div>
+                              <div *ngIf="post.ModePaiement == 2">
+                                <span class="badge badge-pill badge-danger"> virement </span>
+                              </div>
+                              <div *ngIf="post.ModePaiement == 3">
+                                <span class="badge badge-pill badge-primary"> traite </span>
+                              </div>
+                            </td>
+                            <td style="text-align:center">{{ post.NumCheque }}</td>
+
+                            <td style="text-align:center">{{ post.Banque}}</td>
+                            <td style="text-align:center">{{ post.Montant.toFixed(2) }} </td>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+
+                  </div>
+                </div>
+
+              </div>
+
+            </div> </div>
+
+          </app-details>
+        </div>
+      </div>
+    </div>
+  </div>
+</card>
+<ng2-toasty [position]="position"></ng2-toasty>
+

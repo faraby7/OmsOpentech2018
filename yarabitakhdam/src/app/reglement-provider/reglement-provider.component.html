@@ -1,0 +1,95 @@
+<card [title]="'Reglement fournisseurs'" [classHeader]="false" [blockClass]="'table-border-style'"
+      xmlns="http://www.w3.org/1999/html">
+
+  <div _ngcontent-c6="" class="table-responsive">
+    <card cardTitle="Data Table">
+      <table _ngcontent-c6=""  class="table table-lg table-styling table-hover" >
+        <thead _ngcontent-c6="">
+
+        <tr class="table-primary">
+          <th class="text-center priority-1" style=" width: 1%;"> Réf.</th>
+          <th class="text-center priority-3" style="width: 4%;">Date Reglement</th>
+          <th class="text-center priority-7" style="width: 8%;">Mode Paiement</th>
+          <th class="text-center priority-9" style="width: 4%;">Numéro chèque</th>
+          <th class="text-center priority-2" style="width: 4%;">Banque</th>
+          <th class="text-center priority-3" style="width: 4%;"> Montant Reglement</th>
+        </tr>
+        </thead>
+        <tbody _ngcontent-c6="">
+        <tr *ngFor="let post of reglementData | paginate: { id: 'pager', itemsPerPage: pageSize, currentPage: pageNumber};let index = index" class='table-data' [routerLink]="['../DetailFacture/'+post.FactureID ]">
+
+          <td style="text-align:center">Rg.{{ post.id }}</td>
+          <td  style="text-align:center">{{ post.DateReglement.slice(0,10)}}</td>
+          <td  style="text-align:center">
+            <div *ngIf="post.ModePaiement == 0">
+              <span class="label label-inverse-info ">Cheque </span>
+            </div>
+            <div *ngIf="post.ModePaiement== 1">
+              <span class="label label-inverse-warning">Espèce </span>
+            </div>
+            <div *ngIf="post.ModePaiement == 2">
+              <span class="label label-inverse-danger"> virement </span>
+            </div>
+            <div *ngIf="post.ModePaiement == 3">
+              <span class="label label-inverse-success"> traite </span>
+            </div>
+          </td>
+          <td style="text-align:center">
+
+            <div *ngIf="post.ModePaiement == 0">
+              {{ post.NumCheque }}
+            </div>
+            <div *ngIf="post.ModePaiement== 1">
+              <span class="label label-inverse-info-border">Vide </span>
+            </div>
+            <div *ngIf="post.ModePaiement == 2">
+              <span class="label label-inverse-info-border"> Vide </span>
+            </div>
+            <div *ngIf="post.ModePaiement == 3">
+              {{ post.NumCheque }}
+            </div>
+          </td>
+
+          <td style="text-align:center">
+            <div *ngIf="post.ModePaiement == 0">
+              {{ post.Banque}}
+            </div>
+            <div *ngIf="post.ModePaiement== 1">
+              <span class="label label-inverse-info-border">Vide</span>
+            </div>
+            <div *ngIf="post.ModePaiement == 2">
+              <span class="label label-inverse-info-border"> Vide </span>
+            </div>
+            <div *ngIf="post.ModePaiement == 3">
+              {{ post.Banque}}
+            </div>
+          </td>
+          <td style="text-align:center">{{ post.Montant.toFixed(2) }}</td></tr>
+        </tbody>
+      </table>
+      <form class="pagination-wrapper">
+        <div class="form-group pages" style="margin-left: 8px">
+          <pagination-controls class="my-pagination" id="pager" (pageChange)="pageChanged($event)"  directionLinks="true"
+                               autoHide="true" previousLabel="Prev" nextLabel="Next" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+                               screenReaderCurrentLabel="You're on page">
+          </pagination-controls>
+        </div>
+        <div class="form-group options pages" style="margin-right: 8px">
+          <div class="input-group input-group-sm">
+            <select class="form-control" name="pageChangedName" [(ngModel)]="pageSize" (ngModelChange)="getFactureProvider()">
+              <option>1</option>
+              <option>5</option>
+              <option>10</option>
+              <option>20</option>
+              <option>50</option>
+              <option>100</option>
+              <option>200</option>
+            </select>
+            <span class="input-group-addon addon-right" style="background: linear-gradient(to top right, #1abc5b, #1abc9c59);">Per Page</span>
+          </div>
+        </div>
+      </form>
+    </card>
+  </div>
+</card>
+<ng2-toasty [position]="position"></ng2-toasty>

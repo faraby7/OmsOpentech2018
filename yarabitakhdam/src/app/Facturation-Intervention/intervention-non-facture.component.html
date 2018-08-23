@@ -1,0 +1,195 @@
+<card [title]="'Intervention Non Facturer'" [classHeader]="false" [blockClass]="'table-border-style'"
+      xmlns="http://www.w3.org/1999/html">
+  <div class="pcoded-inner-content">
+    <div class="main-body">
+      <div class="page-wrapper">
+        <div class="page-body">
+          <app-details _nghost-c21="" class=""><div _ngcontent-c21="" class="row">
+
+            <div _ngcontent-c21="" class="col-xl-4 col-md-12 col-sm-12 push-xl-8 task-detail-right">
+
+
+                <div _ngcontent-c21="" class="card-header">
+                  <h5 _ngcontent-c21="" class="card-header-text"><i _ngcontent-c21="" class="icofont icofont-ui-note m-r-10"></i> Filtrage Intervention</h5>
+                </div>
+                <div _ngcontent-c21="" class="card-body task-details">
+                  <table _ngcontent-c21="" class="table table-border">
+                    <tbody>
+
+                    <tr _ngcontent-c21="">
+                      <td _ngcontent-c21="" style="color: red;">Resultat</td>
+                      <td _ngcontent-c21="" class="text-right"></td>
+                    </tr>
+                    <tr _ngcontent-c21="">
+                      <td _ngcontent-c21=""><i _ngcontent-c21="" class="icofont icofont-spinner-alt-3"></i> Nombre D'Intervention:</td>
+                      <td _ngcontent-c21="" class="text-right">{{ this.pageSize }}</td>
+                    </tr>
+
+                    <br><br>
+
+                    <li _ngcontent-c21="" class="media d-flex m-b-10">
+
+                      <div _ngcontent-c21="" class="media-body">
+                        <button class="btn btn-inverse " (click)="openfacture(content)"><i class="icofont icofont-exchange" ></i>liée a une Nouvelle Facture</button>
+                      </div>
+                      <br>&nbsp;&nbsp;&nbsp;
+                      <div _ngcontent-c21="" class="media-body">
+                        <button class="btn btn-inverse btn-successy" (click)="openfacture(contentFActure);getFactureExiste();"><i class="icofont icofont-exchange" ></i>liée a une Facture Existant</button>
+                      </div>
+
+                    </li>
+                    </tbody>
+                  </table>
+                </div>
+
+
+            </div>
+
+
+            <div _ngcontent-c21="" class="col-xl-8 col-lg-12 pull-xl-4">
+              <div _ngcontent-c21="" class="card">
+                <div _ngcontent-c21="" class="card-header">
+                  <h5 _ngcontent-c21=""><i _ngcontent-c21="" class="icofont icofont-document-search m-r-5"></i> La Liste Intervention</h5>
+
+                </div>
+                <div _ngcontent-c21="" class="card-body">
+                  <div _ngcontent-c21="" class="">
+
+                    <div _ngcontent-c21="" class="m-b-20">
+                      <div _ngcontent-c21="" class="table-responsive m-t-20">
+                        <table _ngcontent-c21="" class="table m-b-0 f-14 b-solid requid-table " id="listcheck">
+                          <thead _ngcontent-c21="">
+                          <tr _ngcontent-c21="" class='table-filters'>
+
+                            <th _ngcontent-c21=""  style="text-align:center">
+                              <i _ngcontent-c21="" class="icofont icofont-id-card"></i> Client:
+                            </th>
+
+                            <th _ngcontent-c21="" class="text-right" colspan="3">
+                         <select _ngcontent-c10="" class="form-control" Name="ClientID" id="costumer_idid" ngModel (change)="onselectnotchecked()" placeholder="name" >
+                              <option _ngcontent-c10="" *ngFor="let client of ClientData" title="{{ client.id }}" [value]=client.name >{{ client.name }}</option>
+                            </select>
+                            </th>
+
+                          </tr>
+                          <tr _ngcontent-c21="" class="text-uppercase table-info"  class='table-data'>
+
+                            <th class="text-center priority-3" style="width: 4%;"> imei</th>
+                            <th class="text-center priority-1" style=" width: 1%;"> name</th>
+                            <th class="text-center priority-7" style="width: 8%;">model</th>
+                            <th class="text-center priority-9" style="width: 4%;">marque</th>
+                            <th class="text-center priority-2" style="width: 4%;">intervened_at</th>
+                            <th class="text-center priority-3" style="width: 4%;"> Check</th>
+                          </tr>
+                          </thead>
+                          <tbody _ngcontent-c6="">
+                          <tr *ngFor="let post of reglementData | paginate: { id: 'pager', itemsPerPage: pageSize, currentPage: pageNumber};let index = index;" class='table-data'>
+
+                            <td  style="text-align:center">{{ post.imei}}</td>
+                            <td style="text-align:center">{{ post.name }}</td>
+                            <td  style="text-align:center">{{ post.model}}</td>
+                            <td style="text-align:center">{{ post.marque }}</td>
+                            <td style="text-align:center">{{ post.intervened_at}}</td>
+                            <td style="text-align:center">
+                              <div _ngcontent-c26="" class="border-checkbox-section">
+                                <div _ngcontent-c26="" class="border-checkbox-group border-checkbox-group-success">
+                                  <input _ngcontent-c26="" class="border-checkbox" id="{{ post.id }}"  value = "{{ post.id }}" type="checkbox">
+                                  <label _ngcontent-c26="" class="border-checkbox-label" for="{{ post.id }}">Facturer</label>
+                                </div>
+                              </div>
+                            </td>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+
+                  </div>
+                </div>
+
+              </div>
+
+            </div> </div>
+
+          </app-details>
+        </div>
+      </div>
+    </div>
+  </div>
+</card>
+
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header" style="background-color: #4cd787">
+    <h4 class="modal-title" id="modal-basic-title" style="color: white">Facture</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form method="post" action="" [formGroup]="myform" (ngSubmit)="onSubmit(); d('Cross click');" >
+      <div class="form-group">
+
+        <label class="col-form-label">Date Facture</label>
+        <input type="date" class="form-control" formControlName="DateFacture" ngModel required>
+
+        <label class="col-form-label">Date Échéance</label>
+        <input type="date" class="form-control" formControlName="DateEcheance" ngModel required>
+
+        <label  class="col-form-label">Note (publique)</label>
+        <textarea class="form-control" id="NotePublic"  formControlName="NotePublic" ngModel  ></textarea>
+
+        <label  class="col-form-label">Note (Priver)</label>
+        <textarea class="form-control" id="NotePriver"  formControlName="NotePriver" ngModel  ></textarea>
+
+        <input type="hidden" class="form-control" formControlName="ClientID" ngModel >
+        <input type="hidden" class="form-control" name="ArrayChecked"  >
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-danger" (click)="c('Close click')">Cancel</button>
+        <button type="submit" value="Submit" class="btn btn-success" [disabled]="myform.invalid"><i class="icofont icofont-ui-add"></i>Créer brouillon</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+
+
+
+<ng-template #contentFActure let-c="close" let-d="dismiss">
+  <div class="modal-header" style="background-color: #4cd787">
+    <h4 class="modal-title" id="modal-basic-title" style="color: white">Facture</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form method="post" action="" [formGroup]="myform" (ngSubmit)="onAffecter(); d('Cross click');" >
+      <div class="form-group">
+
+        <label class="col-form-label">Facture Ref</label>
+        <select _ngcontent-c10="" class="form-control" formControlName="FactureIntervention" id="costumer_iditd" placeholder="name" >
+          <option _ngcontent-c10="" *ngFor="let facture of FactureRefData" title="{{ facture.id }}" [value]=facture.id >Ref{{ facture.id }}</option>
+        </select>
+
+
+        <input type="hidden" class="form-control" formControlName="ClientID" ngModel >
+        <input type="hidden" class="form-control" name="ArrayChecked"  >
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-danger" (click)="c('Close click')">Cancel</button>
+        <button type="submit" value="Submit" class="btn btn-success" ><i class="icofont icofont-ui-add"></i>OK</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+
+
+<ng2-toasty [position]="position"></ng2-toasty>
+
